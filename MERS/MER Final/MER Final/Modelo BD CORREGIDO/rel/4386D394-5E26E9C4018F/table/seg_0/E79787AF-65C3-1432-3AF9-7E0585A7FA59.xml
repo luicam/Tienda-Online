@@ -1,0 +1,109 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E79787AF-65C3-1432-3AF9-7E0585A7FA59" name="USUARIO">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<generatorID>D1272631-BAB3-F3DE-AB7B-97D6BA1BC0EC</generatorID>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_USUARIO" id="1BBFF1E3-78B5-5C27-4D74-017C1655BDD2">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<generatorID>231E809F-0D97-26E2-CFF5-D7DF9F0CA2E1</generatorID>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EMAIL" id="CA95E6B1-6A09-F487-2E1F-15DC46ED528D">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<generatorID>AAE24E1C-DDEB-A019-20E2-D7737340D54F</generatorID>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PASSWORD" id="399471F4-94F3-BF9A-2157-5D56E43B2F5A">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<generatorID>1E241566-9027-5E1A-311E-BE0ACDCA5C6B</generatorID>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25</dataTypeSize>
+<ownDataTypeParameters>25,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NOMBRE" id="406182F6-F527-6518-414A-A9B980102B38">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<generatorID>D76F2199-4CD3-B178-D3D9-78FBE8077C19</generatorID>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25</dataTypeSize>
+<ownDataTypeParameters>25,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="APELLIDOS" id="2083214A-DA63-6944-21DF-C6BC27E825A2">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<generatorID>B07BA227-26DC-61F2-2F6A-14F70A93A793</generatorID>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DIRECCION" id="7FC45C49-32C7-D686-0EF9-7A422FDA620D">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<generatorID>DFE0623F-0B7C-0B6B-A1BA-02313359FD94</generatorID>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ADMIN" id="07FDFAF1-CC06-D17D-2CDA-64B9D30E85AA">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<generatorID>6E747020-4721-8A6C-CD0D-A4F3ED84A269</generatorID>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BF786588-66CC-BAD8-ABC6-EFA8C4821035" name="USUARIO_PK">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<generatorID>4E62A667-39CE-4E0F-4362-28CC79B021AD</generatorID>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1BBFF1E3-78B5-5C27-4D74-017C1655BDD2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

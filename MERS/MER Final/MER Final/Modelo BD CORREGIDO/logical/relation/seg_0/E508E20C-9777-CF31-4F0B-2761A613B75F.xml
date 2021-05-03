@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="DETALLE_PEDIDO" directorySegmentName="seg_0" id="E508E20C-9777-CF31-4F0B-2761A613B75F">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 09:51:01 UTC</createdTime>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<engineerTo>
+<item key="4386D394-833B-44AB-E78E-5E26E9C4018F" value="true"/>
+</engineerTo>
+<sourcePk>BA932E71-AFE5-AB03-79A7-1197A77B9BA2</sourcePk>
+<targetPk>EA2BBDCD-808C-B92A-705A-2D971237D577</targetPk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>5B6D92A4-32C0-ED7E-0965-356721B9E7E8</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>C3AF5AEE-2E5D-5D01-9AB6-159DD644B4E1</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<attribute name="CANTIDAD" id="682BF08A-8B21-0C62-659E-679A76FD7721">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 09:51:55 UTC</createdTime>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<engineerTo>
+<item key="4386D394-833B-44AB-E78E-5E26E9C4018F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,2,0</ownDataTypeParameters>
+</attribute>
+<attribute name="DEVUELTO" id="DE7B86EE-64E2-657F-56EC-5D6068F5CA76">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 09:52:35 UTC</createdTime>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<engineerTo>
+<item key="4386D394-833B-44AB-E78E-5E26E9C4018F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+</attribute>
+</attributes>
+</Relation>

@@ -1,0 +1,59 @@
+luis miguel camacho chura, 2 daw, github luicam.
+
+tienda PK_id
+id: int(10) PK
+nombre: varchar(25)
+dir: varchar(50)
+
+categoria PK_id
+id: int(10) PK
+nombre: varchar(25)
+id_tienda: int(10) FK
+
+producto PK_id
+id: int(10) PK
+nombre: varchar(50)
+descripción: varchar(300)
+id_categoría: int(10) FK
+id_subcategoría: int(10) 
+imagen: varchar(15)
+precio: decimal(7)
+
+usuario PK_iden
+iden: varchar(20) PK
+contraseña: int(10)
+tipo: varchar(20)
+nombre: varchar(50)
+apellidos: varchar(100)
+fecha_nacimiento: datetime
+dirección: varchar(100)
+cp: int(10)
+población: varchar(30)
+país: varchar(50)
+correo: varchar(100)
+
+pedido/lista_de_deseo PK_id
+id: int(10) PK
+idem_usuario: varchar(50)
+fecha_pedido: datetime
+//estado: varchar(15)
+total: double(10,2)
+prod_nombre: varchar(50)
+prod_precio: double(10,2)
+prod_unidades: int(10)
+id_compra: int(10)
+//añadido
+realizada: varchar(15)
+
+compra PK_id
+id: int(10) PK
+id_pedido: int(10)
+
+lista de deseos
+id_producto: int(10)
+.......
+
+
+Añadir campo "baja", para devoluciones, en las siguiente tablas: compra, pedido,
+
+

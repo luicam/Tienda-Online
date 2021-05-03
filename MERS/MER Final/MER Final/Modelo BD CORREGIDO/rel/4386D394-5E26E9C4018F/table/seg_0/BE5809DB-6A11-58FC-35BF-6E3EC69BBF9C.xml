@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BE5809DB-6A11-58FC-35BF-6E3EC69BBF9C" name="LISTA_DESEOS">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="USUARIO_ID_USUARIO" id="5BA400B2-C5CF-33A2-3C06-9E35669CCF00">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="FD4F0F92-73BD-E245-5E0F-3602CB40225E" referredColumn="1BBFF1E3-78B5-5C27-4D74-017C1655BDD2"/>
+</associations>
+</Column>
+<Column name="PRODUCTO_ID_PRODUCTO" id="677C32C8-C2EA-22FE-9D66-941D6013A151">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="41A56BF5-31E4-2BCC-8FD5-A0C77DDB032F" referredColumn="6D22AD96-360E-C625-4CDB-AD176F2B2199"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D14B6FF1-6641-C386-4FAF-F5E9D42F2F12" name="LISTA_DESEOS_PK">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5BA400B2-C5CF-33A2-3C06-9E35669CCF00"/>
+<colUsage columnID="677C32C8-C2EA-22FE-9D66-941D6013A151"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="173DF953-DCB6-BAF6-07E8-AA8B6C5139D0" name="LISTA_DESEOS_USUARIO_FK">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<generatorID>D3D69575-21D9-6CC2-BAC9-A2C975AA1E05</generatorID>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5BA400B2-C5CF-33A2-3C06-9E35669CCF00"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="63106A78-BA4C-FB60-69A9-B785C0EA8D52" name="LISTA_DESEOS_PRODUCTO_FK">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<generatorID>D3D69575-21D9-6CC2-BAC9-A2C975AA1E05</generatorID>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="677C32C8-C2EA-22FE-9D66-941D6013A151"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,103 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2ADEFA08-8BDF-2C11-0510-F65A0893ED47" name="VALORACION">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<generatorID>B083AD55-FC02-00B1-B1D6-B355B1D19399</generatorID>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="COMENTARIO" id="01388F03-7157-B93C-DD0D-AFC561944F34">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<generatorID>169667CA-707A-2179-B47D-0F9B61ECA0D4</generatorID>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>300</dataTypeSize>
+<ownDataTypeParameters>300,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PUNTUACION" id="B8813DA2-5147-F58E-00C9-FCCFB7BDCA3B">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<generatorID>BECBC74D-8A44-720F-D5BD-ED5D79123A9E</generatorID>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USUARIO_ID_USUARIO" id="DDFB5947-6D5C-44D0-34AC-A7EBF8BC3F7B">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<generatorID>88342171-DA33-6035-E06B-679D6521FEAC</generatorID>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="644E8265-8634-F4D0-31CB-3B29A223DD88" referredColumn="1BBFF1E3-78B5-5C27-4D74-017C1655BDD2"/>
+</associations>
+</Column>
+<Column name="PRODUCTO_ID_PRODUCTO" id="F01A9BC0-FAF6-04C8-24B9-1AEAE00D9DC3">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<generatorID>0024307C-B910-72D8-C815-6336F90A16BB</generatorID>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="54EEBEE8-B7AF-537B-114A-FC4ED7550FDB" referredColumn="6D22AD96-360E-C625-4CDB-AD176F2B2199"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="7CE6686D-41B5-EBD4-5F36-ED7E195CC329" name="VALORACION_PK">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<generatorID>DC7F03FA-3CDE-2815-57BF-207FBCA41C86</generatorID>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DDFB5947-6D5C-44D0-34AC-A7EBF8BC3F7B"/>
+<colUsage columnID="F01A9BC0-FAF6-04C8-24B9-1AEAE00D9DC3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EAF4B4DF-E74F-F80B-1C4F-0B2F55470A0F" name="VALORACION_USUARIO_FK">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<generatorID>DCB0B4AE-BC75-C2D5-D044-F1B030CC5165</generatorID>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DDFB5947-6D5C-44D0-34AC-A7EBF8BC3F7B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F13BDA35-43BF-3A50-76E5-02D98C018320" name="VALORACION_PRODUCTO_FK">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<generatorID>3EEA6935-C4FE-8055-9E80-0C72481A34F7</generatorID>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F01A9BC0-FAF6-04C8-24B9-1AEAE00D9DC3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

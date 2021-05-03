@@ -1,0 +1,87 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1A57D726-2CB6-511B-3089-7905AF000816" name="PEDIDO">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<generatorID>5B6D92A4-32C0-ED7E-0965-356721B9E7E8</generatorID>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_PEDIDO" id="5966DA7F-FF7F-9625-A251-8DAD53F95DAD">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<generatorID>09792CDD-DE06-112C-A2B9-1588A36A94F0</generatorID>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="COMPRADO" id="2271A7D6-13D2-BC3B-EE8C-47161C3ABB69">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<generatorID>2FD5AC07-4B47-3220-6448-500A3D46CEAA</generatorID>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FECHA" id="6270C51E-3708-7279-D2FD-13DE1BA84A9A">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<generatorID>1FB9B7BF-EFE3-FCE4-6EB0-417669B8C332</generatorID>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USUARIO_ID_USUARIO" id="CAEFAD95-AA93-24BF-BA9A-D3055D420DCC">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<generatorID>C952C787-D686-4D0D-C48F-B0D600ED2822</generatorID>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E3183CAE-67D7-98D5-4D12-7B388C008718" referredColumn="1BBFF1E3-78B5-5C27-4D74-017C1655BDD2"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2323B77C-4D79-4274-D4C6-DBD1EBC55038" name="PEDIDO_PK">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<generatorID>BA932E71-AFE5-AB03-79A7-1197A77B9BA2</generatorID>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5966DA7F-FF7F-9625-A251-8DAD53F95DAD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="45C2148B-3897-A30A-D2DB-DF0C6400EAEF" name="PEDIDO_USUARIO_FK">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<generatorID>F09646F9-02C2-B815-F57E-FB2F0DB7259E</generatorID>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CAEFAD95-AA93-24BF-BA9A-D3055D420DCC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

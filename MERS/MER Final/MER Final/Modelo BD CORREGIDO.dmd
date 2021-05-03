@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="Modelo BD CORREGIDO" id="8D40757B-10D7-6962-4C0F-E5708010A808" version="3.5">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 09:31:10 UTC</createdTime>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>8D40757B-10D7-6962-4C0F-E5708010A808</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="289CA685-A6F8-7753-A3B6-7CBFAE13B5BC">
+<designStoragePath>C:\Users\Jesu\Desktop\MER\Modelo BD</designStoragePath>
+</designDescr>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="ED72B09E-0E3C-DC0B-E127-1182A53658B0">
+<designStoragePath>C:\Users\Jesu\Desktop\MER\Modelo BD</designStoragePath>
+</designDescr>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="2ECED06B-EA39-0177-1BC4-6B12424D5EED">
+<designStoragePath>C:\Users\Jesu\Desktop\MER\Modelo BD</designStoragePath>
+</designDescr>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="131ADC19-2B7A-495D-BCB4-E982EA006ACE">
+<designStoragePath>/Users/Jesu/Desktop/MER/Modelo BD</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
+</OSDM_Design>

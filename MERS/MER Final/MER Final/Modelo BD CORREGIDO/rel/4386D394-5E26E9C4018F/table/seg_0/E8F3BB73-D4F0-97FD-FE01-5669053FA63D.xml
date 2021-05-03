@@ -1,0 +1,104 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E8F3BB73-D4F0-97FD-FE01-5669053FA63D" name="DETALLE_PEDIDO">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PEDIDO_ID_PEDIDO" id="97E46EFA-FD93-60A4-D536-6091E0B42F95">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="39B83761-2925-90FA-E63C-485CB32D3307" referredColumn="5966DA7F-FF7F-9625-A251-8DAD53F95DAD"/>
+</associations>
+</Column>
+<Column name="PRODUCTO_ID_PRODUCTO" id="D9BAC8E9-6601-7E85-5517-60B1E1E0BEA8">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="23894B38-AA21-A130-D696-41FE5E34D6D7" referredColumn="6D22AD96-360E-C625-4CDB-AD176F2B2199"/>
+</associations>
+</Column>
+<Column name="CANTIDAD" id="25893DDE-64FA-78F8-4637-3B42BB9330DC">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<generatorID>682BF08A-8B21-0C62-659E-679A76FD7721</generatorID>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,2,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+<isDependOnFK_AsMandatory>true</isDependOnFK_AsMandatory>
+</Column>
+<Column name="DEVUELTO" id="8ED22F5E-3BDD-9F31-BDEA-5BA97FBD5883">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<generatorID>DE7B86EE-64E2-657F-56EC-5D6068F5CA76</generatorID>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+<isDependOnFK_AsMandatory>true</isDependOnFK_AsMandatory>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3E118893-F70E-AB7B-CE83-F28D7BC38DF1" name="DETALLE_PEDIDO_PK">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="97E46EFA-FD93-60A4-D536-6091E0B42F95"/>
+<colUsage columnID="D9BAC8E9-6601-7E85-5517-60B1E1E0BEA8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FD6D5E58-13FB-9216-8B95-93A8A587625F" name="DETALLE_PEDIDO_PEDIDO_FK">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<generatorID>E508E20C-9777-CF31-4F0B-2761A613B75F</generatorID>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="97E46EFA-FD93-60A4-D536-6091E0B42F95"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="40ABA9D3-3828-2F86-7322-5B9C48915DE6" name="DETALLE_PEDIDO_PRODUCTO_FK">
+<createdBy>Jesu</createdBy>
+<createdTime>2021-04-16 10:19:30 UTC</createdTime>
+<generatorID>E508E20C-9777-CF31-4F0B-2761A613B75F</generatorID>
+<ownerDesignName>Modelo BD CORREGIDO</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D9BAC8E9-6601-7E85-5517-60B1E1E0BEA8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
