@@ -8,6 +8,8 @@ Herramientas que se utilizaran:
   Composer
 
 Estructura en forma de árbol del proyecto:
-  
-
+TO
+├───src
+└───upload
+    └───juegos
 
