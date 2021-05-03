@@ -3,6 +3,9 @@ Proyecto integrado
 
 Tienda Online de videojuegos.
 
-Herramientas que se utilizaran.
+Herramientas que se utilizaran:
+  Xampp
+  VisualCode o sublime3
+  
 
 
