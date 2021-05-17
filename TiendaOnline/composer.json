@@ -1,0 +1,20 @@
+{
+    "name": "tonline/tiendaonline",
+    "description": "Creacion de una tienda online de juegos.",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Luis Miguel Camacho Chura",
+            "email": "attnluismiguel@gmail.com"
+        }
+    ],
+    "require": {
+        
+    },
+    "autoload": {
+        "psr-4": {
+            "tonline\\":"src/"
+        }
+    }
+}

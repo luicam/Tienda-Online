@@ -1,0 +1,13 @@
+Cambio el nombre de la tabla "LISTA_DESEOS" por "COMPRA".
+
+Tablas:
+USUARIO
+PEDIDO
+PRODUCTO
+DETALLE_PEDIDO
+COMPRA
+CATEGORIA
+VALORACION
+
+
+
