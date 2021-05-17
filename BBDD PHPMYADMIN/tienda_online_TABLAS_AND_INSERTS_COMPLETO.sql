@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-05-2021 a las 19:40:48
+-- Tiempo de generación: 17-05-2021 a las 17:26:10
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.3
 
@@ -38,7 +38,9 @@ CREATE TABLE `categoria` (
 --
 
 INSERT INTO `categoria` (`ID_CATEGORIA`, `NOMBRE_CATEGORIA`, `DESCRIPCION_CATEGORIA`) VALUES
-(1, 'BATTLE ROYALE', 'En inglés, battle royale, algunas veces referido en español como batalla real, ​​​ es un género de videojuegos que combina los elementos de un videojuego de supervivencia con la jugabilidad de un último jugador en pie.');
+(1, 'BATTLE ROYALE', 'En inglés, battle royale, algunas veces referido en español como batalla real, ​​​ es un género de videojuegos que combina los elementos de un videojuego de supervivencia con la jugabilidad de un último jugador en pie.'),
+(2, 'RPG', 'Se trata de un juego que lleva a los participantes a asumir un rol o papel, interpretando a un personaje. De este modo los jugadores se desenvuelven en historias ficticias que se van construyendo a partir de las decisiones que toman los distintos par'),
+(3, 'acción-aventura', 'Un videojuego de acción-aventura, también llamado videoaventura, es un videojuego que combina elementos del género aventura con elementos del género acción.');
 
 -- --------------------------------------------------------
 
@@ -119,8 +121,10 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`ID_PRODUCTO`, `NOMBRE_PRODUCTO`, `DESCRIPCION`, `PRECIO`, `STOCK`, `IMAGEN`, `CATEGORIA_ID_CATEGORIA`) VALUES
-(1, 'CALL OF DUTY WAR ZONE', 'Call of Duty: Warzone es un videojuego de disparos en primera persona, perteneciente al Battle royale gratuito, lanzado el 10 de marzo de 2020 para PlayStation 4, Xbox One y Microsoft Windows.', 20, 99, './upload/juegos/codwz.jpeg', 1),
-(6, 'FORNITE', 'Fortnite es un videojuego del año 2017 desarrollado por la empresa Epic Games, lanzado como diferentes paquetes de software que presentan diferentes modos de juego, pero que comparten el mismo motor de juego y mecánicas. Fue anunciado en los Spike Vi', 20, 55, './upload/juegos/f.jpeg', 1);
+(1, 'CALL OF DUTY WAR ZONE', 'Call of Duty: Warzone es un videojuego de disparos en primera persona, perteneciente al Battle royale gratuito, lanzado el 10 de marzo de 2020 para PlayStation 4, Xbox One y Microsoft Windows.', 20, 99, 'upload/juegos/codwz.jpg', 1),
+(6, 'FORNITE', 'Fortnite es un videojuego del año 2017 desarrollado por la empresa Epic Games, lanzado como diferentes paquetes de software que presentan diferentes modos de juego, pero que comparten el mismo motor de juego y mecánicas. Fue anunciado en los Spike Vi', 20, 55, 'upload/juegos/f.jpg', 1),
+(7, 'Suicide Squad: Kill the Justice League', 'Suicide Squad: Kill the Justice League es un videojuego desarrollado por Rocksteady Studios, y distribuido por Warner Bros. Interactive Entertainment, para las plataformas PlayStation 5, Xbox Series X|S y Microsoft Windows, basado en el equipo de los', 99, 99, 'upload/juegos/sqkjl.jpg', 3),
+(8, 'Cyberpunk 2077', 'Cyberpunk 2077 es un videojuego desarrollado y publicado por CD Projekt, que se lanzó para Microsoft Windows, PlayStation 4, y Xbox One el 10 de diciembre de 2020, y posteriormente en PlayStation 5, Xbox Series X|S y Google Stadia.', 79, 50, 'upload/juegos/cp.jpg', 2);
 
 -- --------------------------------------------------------
 
@@ -228,7 +232,7 @@ ALTER TABLE `valoracion`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `ID_CATEGORIA` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID_CATEGORIA` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `pedido`
@@ -240,7 +244,7 @@ ALTER TABLE `pedido`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `ID_PRODUCTO` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID_PRODUCTO` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
