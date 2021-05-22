@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-05-2021 a las 17:26:10
+-- Tiempo de generación: 22-05-2021 a las 21:03:21
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.3
 
@@ -40,7 +40,13 @@ CREATE TABLE `categoria` (
 INSERT INTO `categoria` (`ID_CATEGORIA`, `NOMBRE_CATEGORIA`, `DESCRIPCION_CATEGORIA`) VALUES
 (1, 'BATTLE ROYALE', 'En inglés, battle royale, algunas veces referido en español como batalla real, ​​​ es un género de videojuegos que combina los elementos de un videojuego de supervivencia con la jugabilidad de un último jugador en pie.'),
 (2, 'RPG', 'Se trata de un juego que lleva a los participantes a asumir un rol o papel, interpretando a un personaje. De este modo los jugadores se desenvuelven en historias ficticias que se van construyendo a partir de las decisiones que toman los distintos par'),
-(3, 'acción-aventura', 'Un videojuego de acción-aventura, también llamado videoaventura, es un videojuego que combina elementos del género aventura con elementos del género acción.');
+(3, 'acción-aventura', 'Un videojuego de acción-aventura, también llamado videoaventura, es un videojuego que combina elementos del género aventura con elementos del género acción.'),
+(4, 'SHOOTER', 'Los videojuegos de disparos, tiros o shooters conforman un género que engloba un amplio número de subgéneros que tienen la característica común de permitir controlar un personaje que, por norma general, dispone de un arma (mayoritariamente de fuego) '),
+(5, 'SANDBOX', 'El sandbox en un modo o género de videojuegos en el que el protagonista puede ir realizando las misiones o cumplir los objetivos que desee a su gusto sin seguir ningún orden establecido. En estos videojuegos podemos encontrar un mundo abierto con un '),
+(6, 'lucha', 'Un videojuego de lucha, pelea o combate, es un videojuego que se basa en manejar un luchador o un grupo de luchadores, ya sea dando golpes, usando poderes mágicos o armas (incluyendo las de fuego), arrojando objetos o aplicando llaves. Este género se'),
+(7, 'simulación', 'Los videojuegos de simulación son videojuegos que intentan recrear situaciones de la vida real. Los videojuegos de simulación reproducen sensaciones que en realidad no están sucediendo.'),
+(8, 'deportes', 'En general, los deportes virtuales son recreaciones visuales de eventos deportivos derivados de deportes de fantasía e inspirados en eventos deportivos reales. ... Esa es la razón por la que podemos clasificar este tipo de juegos en algún lugar entre'),
+(9, 'terror', 'El horror o terror es un género literario que se define por la sensación que causa: miedo. Nöel Carroll en su libro The Philosophy of Horror explica que la característica más importante del género horror es el efecto del que se causa en la audiencia,');
 
 -- --------------------------------------------------------
 
@@ -122,9 +128,21 @@ CREATE TABLE `producto` (
 
 INSERT INTO `producto` (`ID_PRODUCTO`, `NOMBRE_PRODUCTO`, `DESCRIPCION`, `PRECIO`, `STOCK`, `IMAGEN`, `CATEGORIA_ID_CATEGORIA`) VALUES
 (1, 'CALL OF DUTY WAR ZONE', 'Call of Duty: Warzone es un videojuego de disparos en primera persona, perteneciente al Battle royale gratuito, lanzado el 10 de marzo de 2020 para PlayStation 4, Xbox One y Microsoft Windows.', 20, 99, 'upload/juegos/codwz.jpg', 1),
+(2, 'PlayerUnknown\'s Battlegrounds', 'PlayerUnknown\'s Battlegrounds (estilizado como PUBG) es un videojuego de batalla en línea multijugador masivo desarrollado por Brendan Greene y publicado por Bluehole para Microsoft Windows, Xbox One, PlayStation 4, Android e iOS.', 20, 30, 'upload/juegos/pubg.jpg', 1),
+(3, 'Microsoft Flight Simulator', 'Microsoft Flight Simulator es una serie de simuladores de vuelo creada por SubLOGIC en 1979 pero comercializada por Microsoft desde 1982.', 99, 60, 'upload/juegos/fs.jpg', 7),
+(4, 'Mortal Kombat 11', 'Mortal Kombat 11 es un videojuego de lucha desarrollado por NetherRealm Studios y publicado por Warner Bros. Interactive Entertainment. Se ejecuta en una versión muy modificada de Unreal Engine 3, ​ es la undécima entrega principal de la serie Mortal', 60, 10, 'upload/juegos/mk11.jpg', 6),
+(5, 'Tekken 7', 'Tekken 7 es un videojuego de lucha desarrollado y distribuido por Namco Bandai Games. El juego es la séptima entrega principal de la saga Tekken y el primero en utilizar el motor gráfico Unreal Engine. Fue estrenado inicialmente en Japón para máquina', 70, 40, 'upload/juegos/t7.jpg', 6),
 (6, 'FORNITE', 'Fortnite es un videojuego del año 2017 desarrollado por la empresa Epic Games, lanzado como diferentes paquetes de software que presentan diferentes modos de juego, pero que comparten el mismo motor de juego y mecánicas. Fue anunciado en los Spike Vi', 20, 55, 'upload/juegos/f.jpg', 1),
-(7, 'Suicide Squad: Kill the Justice League', 'Suicide Squad: Kill the Justice League es un videojuego desarrollado por Rocksteady Studios, y distribuido por Warner Bros. Interactive Entertainment, para las plataformas PlayStation 5, Xbox Series X|S y Microsoft Windows, basado en el equipo de los', 99, 99, 'upload/juegos/sqkjl.jpg', 3),
-(8, 'Cyberpunk 2077', 'Cyberpunk 2077 es un videojuego desarrollado y publicado por CD Projekt, que se lanzó para Microsoft Windows, PlayStation 4, y Xbox One el 10 de diciembre de 2020, y posteriormente en PlayStation 5, Xbox Series X|S y Google Stadia.', 79, 50, 'upload/juegos/cp.jpg', 2);
+(7, 'SS: Kill the Justice League', 'Suicide Squad: Kill the Justice League es un videojuego desarrollado por Rocksteady Studios, y distribuido por Warner Bros. Interactive Entertainment, para las plataformas PlayStation 5, Xbox Series X|S y Microsoft Windows, basado en el equipo de los', 99, 99, 'upload/juegos/sqkjl.jpg', 3),
+(8, 'Cyberpunk 2077', 'Cyberpunk 2077 es un videojuego desarrollado y publicado por CD Projekt, que se lanzó para Microsoft Windows, PlayStation 4, y Xbox One el 10 de diciembre de 2020, y posteriormente en PlayStation 5, Xbox Series X|S y Google Stadia.', 79, 50, 'upload/juegos/cp.jpg', 2),
+(9, 'Baldur\'s Gate 3', 'Baldur\'s Gate III es un próximo videojuego de rol que está siendo desarrollado y publicado por Larian Studios. Es el tercer juego principal de la serie Baldur\'s Gate, basado en el sistema de rol de mesa Dungeons & Dragons.', 50, 80, 'upload/juegos/bg.jpg', 2),
+(10, 'Red Dead Redemption 2', 'Red Dead Redemption 2 es un videojuego de acción-aventura western, en un mundo abierto y en perspectiva de primera y tercera persona, ​ con componentes para un jugador y multijugador.​ Fue desarrollado por Rockstar Games. Es la precuela de Red Dead R', 70, 12, 'upload/juegos/rdr2.png', 3),
+(11, 'Elden Ring', 'Elden Ring será un juego de rol de acción desarrollado por FromSoftware y publicado por Bandai Namco Entertainment. El juego es un esfuerzo de colaboración entre el director del juego Hidetaka Miyazaki y el novelista de fantasía George R. R. Martin.', 80, 99, 'upload/juegos/er.jpg', 3),
+(12, 'Grand Theft Auto V', 'Grand Theft Auto V es un videojuego de acción-aventura de mundo abierto desarrollado por el estudio Rockstar North y distribuido por Rockstar Games. Fue lanzado el 17 de septiembre de 2013 para las consolas PlayStation 3 y Xbox 360.​', 20, 50, 'upload/juegos/gta5.jpg', 3),
+(13, 'Minecraft', 'Minecraft es un videojuego de mundo abierto donde la exploración y las construcciones son fundamentales. ... Al ser un videojuego de mundo abierto, no tiene una misión concreta (salvo alguno de sus modos de juego) y consiste en la construcción libre ', 10, 20, 'upload/juegos/m.jpg', 5),
+(14, 'FIFA 21', 'FIFA 21 es un videojuego de fútbol del año 2020 disponible para Microsoft Windows, PlayStation 4, Xbox One y Nintendo Switch el 9 de octubre de 2020, y también es el primer videojuego de la serie FIFA para PlayStation 5 y Xbox Series X|S. El juego es', 50, 77, 'upload/juegos/fifa.jpg', 8),
+(15, 'Super Smash Bros. Ultimate', 'Super Smash Bros. Ultimate es un videojuego de lucha crossover de la serie Super Smash Bros. desarrollada por Bandai Namco Games y Sora Ltd. y publicado por Nintendo. Este salió a la venta para Nintendo Switch a nivel mundial el 7 de diciembre de 201', 60, 66, 'upload/juegos/ssbu.png', 6),
+(16, 'Resident Evil Village', 'Resident Evil Village es un videojuego perteneciente al género de horror de supervivencia desarrollado y publicado por Capcom. la novena entrega de la serie principal de Resident Evil y secuela narrativa,', 70, 55, 'upload/juegos/village.jpg', 9);
 
 -- --------------------------------------------------------
 
@@ -232,7 +250,7 @@ ALTER TABLE `valoracion`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `ID_CATEGORIA` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID_CATEGORIA` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `pedido`
@@ -244,7 +262,7 @@ ALTER TABLE `pedido`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `ID_PRODUCTO` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID_PRODUCTO` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
