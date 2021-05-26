@@ -9,7 +9,8 @@ require 'funciones.php';
      <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta name="author" content="">
+    <meta name="description" content="">
     <!-- Bootstrap CSS -->
     <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">-->
     <title>CGS</title>
@@ -35,7 +36,7 @@ require 'funciones.php';
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav pull-right">
             <li>
-              <a href="carrito.php" class="btn">CARRITO<span class="glyphicon glyphicon-shopping-cart"><!-- llamar metodo listar juegos compra --></span></a>
+              <a href="carrito.php" class="btn">CARRITO <span class="glyphicon glyphicon-shopping-cart"> <?php print cantidadProducto(); ?></span></a>
             </li> 
           </ul>
         </div><!--/.nav-collapse -->

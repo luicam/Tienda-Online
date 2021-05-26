@@ -9,7 +9,8 @@ require 'funciones.php';
      <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta name="author" content="">
+    <meta name="description" content="">
     <!-- Bootstrap CSS -->
     <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">-->
     <title>CGS</title>
@@ -35,7 +36,7 @@ require 'funciones.php';
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav pull-right">
             <li>
-              <a href="carrito.php" class="btn">CARRITO<span class="glyphicon glyphicon-shopping-cart"><!-- llamar metodo listar juegos compra --></span></a>
+              <a href="carrito.php" class="btn">CARRITO <span class="glyphicon glyphicon-shopping-cart"> <?php print cantidadProducto(); ?></span></a>
             </li> 
           </ul>
         </div><!--/.nav-collapse -->
@@ -48,27 +49,31 @@ require 'funciones.php';
             <div class="row">
                 <div class="col-md-12">
                     <fieldset>
-                        <legend>Completar Datos</legend>
+                        <legend>Completar Datos:</legend>
                             <form action="completar_pedido.php" method="post">
                                 <div class="form-group">
-                                    <label>Nombre</label>
-                                    <input type="text" class="form-control" name="nombre" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Apellidos</label>
-                                    <input type="text" class="form-control" name="apellidos" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Correo</label>
+                                    <label>EMAIL</label>
                                     <input type="email" class="form-control" name="email" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Teléfono</label>
-                                    <input type="text" class="form-control" name="telefono" required>
+                                    <label>PASSWORD</label>
+                                    <input type="password" class="form-control" name="password" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Comentario</label>
-                                    <textarea name="comentario" class="form-control"  rows="4"></textarea>
+                                    <label>NOMBRE</label>
+                                    <input type="text" class="form-control" name="nombre" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>APELLIDOS</label>
+                                    <input type="text" class="form-control" name="apellidos" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>DIRECCION</label>
+                                    <input type="text" class="form-control" name="direccion" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>ADMIN</label>
+                                    <input type="text" class="form-control" name="admin" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-block">Enviar</button>
                             </form>

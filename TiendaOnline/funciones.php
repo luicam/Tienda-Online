@@ -1,18 +1,21 @@
 <?php
 //EJEMPLO
 //TODO: FALTAN CAMPOS COMPLETAR
-function agregarP($resultado, $id, $cantidad = 1){
+function agregarProducto($resultado, $id, $cantidad = 1){
     $_SESSION['carrito'][$id] = array(
-        'id' => $resultado['id'],
-        'titulo' => $resultado['titulo'],
-        'foto' => $resultado['foto'],
-        'precio' => $resultado['precio'],
+        'ID_PRODUCTO' => $resultado['ID_PRODUCTO'],
+        'NOMBRE_PRODUCTO' => $resultado['NOMBRE_PRODUCTO'],
+        'DESCRIPCION' => $resultado['DESCRIPCION'],
+        'PRECIO' => $resultado['PRECIO'],
+        'STOCK' => $resultado['STOCK'],
+        'IMAGEN' => $resultado['IMAGEN'],
+        'CATEGORIA_ID_CATEGORIA' => $resultado['CATEGORIA_ID_CATEGORIA'],
         'cantidad' => $cantidad
    );
 }
 
 //TODO: FALTAN CAMPOS COMPLETAR
-function actualizarP($id,$cantidad = FALSE){
+function actualizarProducto($id,$cantidad = FALSE){
 
     if($cantidad)
         $_SESSION['carrito'][$id]['cantidad'] = $cantidad;
@@ -26,14 +29,14 @@ function calcularTotal(){
     $total = 0;
     if(isset($_SESSION['carrito'])){
         foreach($_SESSION['carrito'] as $indice => $value){
-            $total += $value['precio'] * $value['cantidad'];
+            $total += $value['PRECIO'] * $value['cantidad'];
         }
     }
     return $total;
 
 }
 //TODO: FALTAN CAMPOS COMPLETAR
-function cantidadP(){
+function cantidadProducto(){
     $cantidad = 0;
     if(isset($_SESSION['carrito'])){
         foreach($_SESSION['carrito'] as $indice => $value){

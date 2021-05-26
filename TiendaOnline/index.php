@@ -9,7 +9,8 @@ require 'funciones.php';
      <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta name="author" content="">
+    <meta name="description" content="">
     <!-- Bootstrap CSS -->
     <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">-->
     <title>CGS</title>
@@ -35,23 +36,23 @@ require 'funciones.php';
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav pull-right">
             <li>
-              <a href="carrito.php" class="btn">CARRITO <span class="glyphicon glyphicon-shopping-cart"><!-- llamar metodo listar juegos compra --></span></a>
+              <a href="carrito.php" class="btn">CARRITO <span class="glyphicon glyphicon-shopping-cart"> <?php print cantidadProducto(); ?></span></a>
             </li> 
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
     
-    <!--Carrusel-->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
+    <!--Carrusel
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">-->
+      <!-- Indicators 
       <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
+      </ol>-->
 
-      <!-- Wrapper for slides -->
+      <!-- Wrapper for slides 
       <div class="carousel-inner">
         <div class="item active">
           <img src="upload/fornite.jpg" alt="Novedad">
@@ -64,9 +65,9 @@ require 'funciones.php';
         <div class="item">
           <img src="upload/pubg.jpg" alt="Novedad">
         </div>
-      </div>
+      </div>-->
 
-      <!-- Left and right controls -->
+      <!-- Left and right controls 
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left"></span>
         <span class="sr-only">Previous</span>
@@ -75,7 +76,7 @@ require 'funciones.php';
         <span class="glyphicon glyphicon-chevron-right"></span>
         <span class="sr-only">Next</span>
       </a>
-    </div>
+    </div>-->
   
     <!-- contenido -->
     <div class="container" id="main">
