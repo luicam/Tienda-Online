@@ -56,7 +56,7 @@ class Pedido{
     }
 
     public function mostrar(){
-        $sql = "SELECT p.ID_USUARIO, EMAIL, PASSWORD, NOMBRE, APELLIDOS, DIRECCION, ADMIN FROM pedido p 
+        $sql = "SELECT p.USUARIO_ID_USUARIO, p.FECHA, EMAIL, PASSWORD, NOMBRE, APELLIDOS, DIRECCION, ADMIN FROM pedido p 
         INNER JOIN usuario u ON p.USUARIO_ID_USUARIO = u.ID_USUARIO ORDER BY p.USUARIO_ID_USUARIO DESC";
 
         $resultado = $this->cn->prepare($sql);
@@ -69,7 +69,7 @@ class Pedido{
     }
 
     public function mostrarUltimos(){
-        $sql = "SELECT p.USUARIO_ID_USUARIO, EMAIL, PASSWORD, NOMBRE, APELLIDOS, DIRECCION, ADMIN FROM pedido p 
+        $sql = "SELECT p.USUARIO_ID_USUARIO, p.FECHA, EMAIL, PASSWORD, NOMBRE, APELLIDOS, DIRECCION, ADMIN FROM pedido p 
         INNER JOIN usuario u ON p.USUARIO_ID_USUARIO = u.ID_USUARIO ORDER BY p.USUARIO_ID_USUARIO DESC LIMIT 10";
 
         $resultado = $this->cn->prepare($sql);
