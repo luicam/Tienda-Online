@@ -19,14 +19,14 @@ class Pedido{
     
     public function registrar($_params){
         $sql = "INSERT INTO `pedido`(`COMPRADO`, `FECHA`, `USUARIO_ID_USUARIO`) 
-        VALUES (:comprado,:fecha,:usuario_id)";
+        VALUES (:COMPRADO, :FECHA, :USUARIO_ID_USUARIO)";
 
         $resultado = $this->cn->prepare($sql);
 
         $_array = array(
-            ":comprado" => $_params['comprado'],
-            ":fecha" => $_params['fecha'],
-            ":usuario_id" => $_params['usuario_id'],
+            ":COMPRADO" => $_params['COMPRADO'],
+            ":FECHA" => $_params['FECHA'],
+            ":USUARIO_ID_USUARIO" => $_params['USUARIO_ID_USUARIO'],
             
         );
 
@@ -36,17 +36,34 @@ class Pedido{
         return false;
     }
 
-    public function registrarDetalle($_params){
+    public function registrarPedido($_params){
         $sql = "INSERT INTO `detalle_pedido`(`PEDIDO_ID_PEDIDO`, `PRODUCTO_ID_PRODUCTO`, `CANTIDAD`, `DEVUELTO`) 
-        VALUES (:pedido_id,:producto_id,:cantidad,:devuelto)";
+        VALUES (:PEDIDO_ID_PEDIDO,:PRODUCTO_ID_PRODUCTO,:CANTIDAD,:DEVUELTO)";
 
         $resultado = $this->cn->prepare($sql);
 
         $_array = array(
-            ":pedido_id" => $_params['pedido_id'],
-            ":producto_id" => $_params['producto_id'],
-            ":cantidad" => $_params['cantidad'],
-            ":devuelto" => $_params['devuelto'],
+            ":PEDIDO_ID_PEDIDO" => $_params['ID_PEDIDO'],
+            ":PRODUCTO_ID_PRODUCTO" => $_params['ID_PRODUCTO'],
+            ":CANTIDAD" => $_params['CANTIDAD'],
+            ":DEVUELTO" => $_params['DEVUELTO'],
+        );
+
+        if($resultado->execute($_array))
+            return  true;
+
+        return false;
+    }
+
+    public function registrarCompra($_params2){
+        $sql = "INSERT INTO `compra`(`USUARIO_ID_USUARIO`, `PRODUCTO_ID_PRODUCTO`) 
+        VALUES (:USUARIO_ID_USUARIO,:PRODUCTO_ID_PRODUCTO)";
+
+        $resultado = $this->cn->prepare($sql);
+
+        $_array = array(
+            ":USUARIO_ID_USUARIO" => $_params2['USUARIO_ID_USUARIO'],
+            ":PRODUCTO_ID_PRODUCTO" => $_params2['PRODUCTO_ID_PRODUCTO']
         );
 
         if($resultado->execute($_array))
@@ -83,12 +100,12 @@ class Pedido{
 
     public function mostrarPorId($id){
         $sql = "SELECT p.USUARIO_ID_USUARIO, EMAIL, PASSWORD, NOMBRE, APELLIDOS, DIRECCION, ADMIN FROM pedido p 
-        INNER JOIN usuario u ON p.USUARIO_ID_USUARIO = u.ID_USUARIO WHERE p.USUARIO_ID_USUARIO = :id";
+        INNER JOIN usuario u ON p.USUARIO_ID_USUARIO = u.ID_USUARIO WHERE p.USUARIO_ID_USUARIO = :USUARIO_ID_USUARIO";
 
         $resultado = $this->cn->prepare($sql);
 
         $_array = array(
-            ':id'=>$id
+            ':USUARIO_ID_USUARIO'=>$id
         );
 
         if($resultado->execute($_array ))

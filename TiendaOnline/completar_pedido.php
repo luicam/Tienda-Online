@@ -9,14 +9,13 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
 
     if(isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])){
         $usuario = new tonline\Usuario;
-    
         $_params = array(
-            'email' => $_POST['email'],
-            'password' => $_POST['password'],
-            'nombre' => $_POST['nombre'],
-            'apellidos' => $_POST['apellidos'],
-            'direccion' => $_POST['direccion'],
-            'admin' => $_POST['admin']
+            'EMAIL' => $_POST['EMAIL'],
+            'PASSWORD' => $_POST['PASSWORD'],
+            'NOMBRE' => $_POST['NOMBRE'],
+            'APELLIDOS' => $_POST['APELLIDOS'],
+            'DIRECCION' => $_POST['DIRECCION'],
+            'ADMIN' => $_POST['ADMIN']
         );
     
         $usuario_id = $usuario->registrar($_params);
@@ -24,24 +23,32 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
         $pedido = new tonline\Pedido;
     
         $_params = array(
-            'comprado'=>1,
+            'COMPRADO'=>1,
             //'total' => calcularTotal(),
-            'fecha' => date('Y-m-d'),
-            'usuario_id'=>$usuario_id,
+            'FECHA' => date('Y-m-d'),
+            'USUARIO_ID_USUARIO'=>$usuario_id,
         );
         
         $pedido_id =  $pedido->registrar($_params);
         
-        //$producto_id =  $producto->mostrarPorId($id);
+        
+
         foreach($_SESSION['carrito'] as $indice => $value){
             $_params = array(
-                "pedido_id" => $pedido_id,
-                "producto_id" => $id,
-                "cantidad" => $value['cantidad'],
-                "devuelto" => 0,
+                'ID_PEDIDO' => $pedido_id,
+                'ID_PRODUCTO' => $value['ID_PRODUCTO'],
+                'CANTIDAD' => $value['cantidad'],
+                'DEVUELTO' => 0
             );
 
-            $pedido->registrarDetalle($_params);
+
+            $pedido->registrarPedido($_params);
+
+            $_params2 = array(
+            'USUARIO_ID_USUARIO'=>$usuario_id,
+            'PRODUCTO_ID_PRODUCTO'=> $value['ID_PRODUCTO']
+            );
+            $pedido->registrarCompra($_params2);
         }
 
         $_SESSION['carrito'] = array();

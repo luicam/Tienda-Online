@@ -1,6 +1,14 @@
 <?php
+//ACTIVAR LAS SESSIONES EN PHP
 session_start();
 require 'funciones.php';
+//if(isset($_GET['ID_PRODUCTO']) && is_numeric($_GET['ID_PRODUCTO'])){
+if(isset($_GET['ID_PRODUCTO']) && is_numeric($_GET['ID_PRODUCTO'])){
+    $id = $_GET['ID_PRODUCTO'];
+
+}  
+
+
 
 ?>
 <!DOCTYPE html>
@@ -42,45 +50,70 @@ require 'funciones.php';
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-    
-    <!-- contenido -->
+    <!-- Container -->
     <div class="container" id="main">
-        <div class="main-form">
-            <div class="row">
-                <div class="col-md-12">
-                    <fieldset>
-                        <legend>Completar Datos:</legend>
-                            <form action="completar_pedido.php" method="post">
-                                <div class="form-group">
-                                    <label>EMAIL</label>
-                                    <input type="email" class="form-control" name="EMAIL" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>PASSWORD</label>
-                                    <input type="password" class="form-control" name="PASSWORD" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>NOMBRE</label>
-                                    <input type="text" class="form-control" name="NOMBRE" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>APELLIDOS</label>
-                                    <input type="text" class="form-control" name="APELLIDOS" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>DIRECCION</label>
-                                    <input type="text" class="form-control" name="DIRECCION" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>ADMIN</label>
-                                    <input type="text" class="form-control" name="ADMIN" required>
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-block">Enviar</button>
-                            </form>
-                    </fieldset>
-                </div>
-            </div>
+    <div class="row">
+          <div class="col-md-12">
+             <fieldset>
+              <legend>Todos los Pedidos</legend>
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Producto</th>
+                      <th>Usuario</th>
+                      <th>Puntuaciones</th>
+                      <th>Comentarios</th>
+                      <th>Categoria</th>
+                      <th>Precio</th>
+                    </tr>
+                  </thead>
+                  <tbody> 
+                    <?php
+                        require 'vendor/autoload.php';
+                        
+                        $valoracion  = new tonline\Valoracion;
+                        $info_valoracion = $valoracion->mostrarPorId($id);
+
+                        $cantidad = count($info_valoracion);
+                        if($cantidad > 0){
+                            $c=0;
+                        for($x =0; $x < $cantidad; $x++){
+                            $c++;
+                            $item = $info_valoracion[$x];
+                    ?>
+
+
+                    <tr>
+                      <td><?php print $c?></td>
+                      <td><?php print $item['NOMBRE_PRODUCTO']?></td>
+                      <td><?php print $item['NOMBRE']?></td>
+                      <td><?php print $item['PUNTUACION']?></td>
+                      <td><?php print $item['COMENTARIO']?></td>
+                      <td><?php print $item['NOMBRE_CATEGORIA']?></td>
+                      <td><?php print $item['PRECIO']?> €</td>
+                      
+                    </tr>
+
+                    <?php
+                      }
+                    }else{
+
+                    ?>
+                    <tr>
+                      <td colspan="7">NO HAY VALORACIONES PARA ESTE PRODUCTO</td>
+                    </tr>
+
+                    <?php }?>
+                  
+                  
+                  </tbody>
+
+                </table>
+             </fieldset>
+          </div>
         </div>
+
     </div>
     <!-- /container -->
 

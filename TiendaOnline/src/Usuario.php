@@ -19,17 +19,17 @@ class Usuario{
     
     public function registrar($_params){
         $sql = "INSERT INTO `usuario`(`EMAIL`, `PASSWORD`, `NOMBRE`, `APELLIDOS`, `DIRECCION`, `ADMIN`) 
-        VALUES (:email,:password,:nombre,:apellidos,:direccion,:admin)";
+        VALUES (:EMAIL,:PASSWORD,:NOMBRE,:APELLIDOS,:DIRECCION,:ADMIN)";
 
         $resultado = $this->cn->prepare($sql);
 
         $_array = array(
-            ":email" => $_params['email'],
-            ":password" => $_params['password'],
-            ":nombre" => $_params['nombre'],
-            ":apellidos" => $_params['apellidos'],
-            ":direccion" => $_params['direccion'],
-            ":admin" => $_params['admin']
+            ":EMAIL" => $_params['EMAIL'],
+            ":PASSWORD" => $_params['PASSWORD'],
+            ":NOMBRE" => $_params['NOMBRE'],
+            ":APELLIDOS" => $_params['APELLIDOS'],
+            ":DIRECCION" => $_params['DIRECCION'],
+            ":ADMIN" => $_params['ADMIN']
         );
 
         if($resultado->execute($_array))

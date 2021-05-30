@@ -2,7 +2,7 @@
 //ACTIVAR LAS SESSIONES EN PHP
 session_start();
 require 'funciones.php';
-
+//if(isset($_GET['ID_PRODUCTO']) && is_numeric($_GET['ID_PRODUCTO'])){
 if(isset($_GET['ID_PRODUCTO']) && is_numeric($_GET['ID_PRODUCTO'])){
     $id = $_GET['ID_PRODUCTO'];
     require 'vendor/autoload.php';
@@ -103,7 +103,7 @@ if(isset($_GET['ID_PRODUCTO']) && is_numeric($_GET['ID_PRODUCTO'])){
                                 <td><?php print $value['NOMBRE_PRODUCTO']  ?></td>
                                 <td>
                                     <?php
-                                        $foto = 'upload/'.$value['IMAGEN'];
+                                        $foto = './'.$value['IMAGEN'];
                                         if(file_exists($foto)){
                                         ?>
                                         <img src="<?php print $foto; ?>" width="35">
@@ -113,7 +113,7 @@ if(isset($_GET['ID_PRODUCTO']) && is_numeric($_GET['ID_PRODUCTO'])){
                                 </td>
                                 <td><?php print $value['PRECIO']  ?> €</td>
                                 <td>
-                                <input type="hidden" name="id"  value="<?php print $value['ID_PRODUCTO'] ?>">
+                                    <input type="hidden" name="ID_PRODUCTO"  value="<?php print $value['ID_PRODUCTO'] ?>">
                                     <input type="text" name="cantidad" class="form-control u-size-100" value="<?php print $value['cantidad'] ?>">
                                 </td>
                                 <td>
@@ -124,7 +124,7 @@ if(isset($_GET['ID_PRODUCTO']) && is_numeric($_GET['ID_PRODUCTO'])){
                                         <span class="glyphicon glyphicon-refresh"></span> 
                                     </button>
 
-                                    <a href="eliminar_carrito.php?id=<?php print $value['ID_PRODUCTO']  ?>" class="btn btn-danger btn-xs">
+                                    <a href="eliminar_carrito.php?ID_PRODUCTO=<?php print $value['ID_PRODUCTO']  ?>" class="btn btn-danger btn-xs">
                                         <span class="glyphicon glyphicon-trash"></span> 
                                     </a>
 
