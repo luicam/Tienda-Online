@@ -8,15 +8,18 @@ Herramientas que se utilizaran:
   Composer
 
 Estructura en forma de árbol del proyecto:
+C:\xampp\htdocs>tree TiendaOnline
+
 TiendaOnline
-│   ├───assets
-│   │   ├───css
-│   │   ├───fonts
-│   │   ├───imagenes
-│   │   └───js
-│   ├───panel
-│   ├───src
-│   ├───upload
-│   │   └───juegos
-│   └───vendor
-│       └───composer
+├───assets
+│   ├───css
+│   ├───fonts
+│   ├───imagenes
+│   └───js
+├───panel
+│   └───pedidos
+├───src
+├───upload
+│   └───juegos
+└───vendor
+    └───composer
