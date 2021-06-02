@@ -59,12 +59,14 @@
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>Cliente</th>
+                      <th>ID Pedido</th>
+                      <th>ID Producto</th>
+                      <th>Nombre Producto</th>
                       <th>ID Cliente</th>
-                      <th>ID´s Pedido</th>
-                      <th>Total</th>
+                      <th>Datos Cliente</th>
                       <th>Direccion</th>
                       <th>Fecha</th>
+                      <th>Total</th>
                       <th></th>
                     </tr>
                   </thead>
@@ -73,24 +75,38 @@
                       require '../vendor/autoload.php';
                       $pedido = new tonline\Pedido;
                       $info_pedido = $pedido->mostrarUltimos();
-                    
+                   	  
+
                       $cantidad = count($info_pedido);
                       if($cantidad > 0){
                         $c=0;
                       for($x =0; $x < $cantidad; $x++){
                         $c++;
                         $item = $info_pedido[$x];
+                        $acumulador = 0;
+                        $id_producto = '';
+                        $nombre_producto = '';
+                        $info_detalle_pedido = $pedido->mostrarDetallePorIdPedido($item['ID_PEDIDO']);
+                        for ($y=0; $y < count($info_detalle_pedido); $y++) { 
+                        	$acumulador = $acumulador + ($info_detalle_pedido[$y]['CANTIDAD']*$info_detalle_pedido[$y]['PRECIO']);
+                        	$nombre_producto = $info_detalle_pedido[$y]['NOMBRE_PRODUCTO'];
+                        	$id_producto = $info_detalle_pedido[$y]['PRODUCTO_ID_PRODUCTO'];
+                        }
+                        
+
                     ?>
 
 
                     <tr>
                       <td><?php print $c?></td>
-                      <td><?php print $item['NOMBRE'].' '.$item['APELLIDOS']?></td>
+                      <td><?php print $item['ID_PEDIDO']?></td>
+                      <td><?php print $id_producto?></td>
+                      <td><?php print $nombre_producto?></td>
                       <td><?php print $item['USUARIO_ID_USUARIO']?></td>
-                      <td></td>
-                      <td> €</td>
+                      <td><?php print $item['NOMBRE'].' '.$item['APELLIDOS']?></td>
                       <td><?php print $item['DIRECCION']?></td>
                       <td><?php print $item['FECHA']?></td>
+                      <td><?php print $acumulador ?> €</td>
                        
                       <td class="text-center">
                         <a href="pedidos/ver.php?id=<?php print $item['USUARIO_ID_USUARIO'] ?>" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-eye-open"></span></a>
@@ -105,7 +121,7 @@
 
                     ?>
                     <tr>
-                      <td colspan="6">NO HAY REGISTROS</td>
+                      <td colspan="9">NO HAY REGISTROS</td>
                     </tr>
 
                     <?php }?>

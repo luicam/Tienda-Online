@@ -72,9 +72,23 @@ class Pedido{
         return false;
     }
 
+    //innecesario, -> Poner en mostrar ultimoas p.id_pedido
+    public function mostrarId(){
+        $sql = "SELECT ID_PEDIDO FROM pedido 
+        ORDER BY ID_PEDIDO ASC";
+
+        $resultado = $this->cn->prepare($sql);
+
+        if($resultado->execute())
+            return  $resultado->fetchAll();
+
+        return false;
+
+    }
+
     public function mostrar(){
         $sql = "SELECT p.USUARIO_ID_USUARIO, p.FECHA, EMAIL, PASSWORD, NOMBRE, APELLIDOS, DIRECCION, ADMIN FROM pedido p 
-        INNER JOIN usuario u ON p.USUARIO_ID_USUARIO = u.ID_USUARIO ORDER BY p.USUARIO_ID_USUARIO DESC";
+        INNER JOIN usuario u ON p.USUARIO_ID_USUARIO = u.ID_USUARIO ORDER BY p.USUARIO_ID_USUARIO ASC";
 
         $resultado = $this->cn->prepare($sql);
 
@@ -86,8 +100,8 @@ class Pedido{
     }
 
     public function mostrarUltimos(){
-        $sql = "SELECT p.USUARIO_ID_USUARIO, p.FECHA, EMAIL, PASSWORD, NOMBRE, APELLIDOS, DIRECCION, ADMIN FROM pedido p 
-        INNER JOIN usuario u ON p.USUARIO_ID_USUARIO = u.ID_USUARIO ORDER BY p.USUARIO_ID_USUARIO DESC LIMIT 10";
+        $sql = "SELECT p.ID_PEDIDO, p.USUARIO_ID_USUARIO, p.FECHA, NOMBRE, APELLIDOS, DIRECCION, ADMIN FROM pedido p 
+        INNER JOIN usuario u ON p.USUARIO_ID_USUARIO = u.ID_USUARIO ORDER BY p.USUARIO_ID_USUARIO ASC LIMIT 10";
 
         $resultado = $this->cn->prepare($sql);
 
@@ -108,7 +122,7 @@ class Pedido{
             ':USUARIO_ID_USUARIO'=>$id
         );
 
-        if($resultado->execute($_array ))
+        if($resultado->execute($_array))
             return  $resultado->fetch();
 
         return false;
@@ -117,24 +131,24 @@ class Pedido{
     
 
     public function mostrarDetallePorIdPedido($id){
-        /*$sql = "SELECT 
-                dp.id,
-                pe.titulo,
-                dp.precio,
-                dp.cantidad,
-                pe.foto
-                FROM detalle_pedidos dp
-                INNER JOIN peliculas pe ON pe.id= dp.pelicula_id
-                WHERE dp.pedido_id = :id";
+        $sql = "SELECT 
+                dp.PEDIDO_ID_PEDIDO,
+                dp.PRODUCTO_ID_PRODUCTO,
+                p.NOMBRE_PRODUCTO,
+                p.PRECIO,
+                dp.CANTIDAD
+                FROM detalle_pedido dp
+                INNER JOIN producto p ON p.ID_PRODUCTO = dp.PRODUCTO_ID_PRODUCTO
+                WHERE dp.PEDIDO_ID_PEDIDO = :ID_PEDIDO";
 
         $resultado = $this->cn->prepare($sql);
 
         $_array = array(
-            ':id'=>$id
+            ':ID_PEDIDO'=>$id
         );
 
-        if($resultado->execute( $_array))
-            return  $resultado->fetchAll();*/
+        if($resultado->execute($_array))
+            return  $resultado->fetchAll();
 
         return false;
 
