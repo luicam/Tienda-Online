@@ -51,10 +51,11 @@
 
     <!-- contenido -->
     <div class="container" id="main">
-    <div class="row">
+        <!--1º fila con una tabla-->
+        <div class="row">
           <div class="col-md-12">
              <fieldset>
-              <legend>Listado de los últimos 10 Pedidos</legend>
+              <legend>Listado de los 10 últimos Pedidos</legend>
                 <table class="table table-bordered">
                   <thead>
                     <tr>
@@ -81,17 +82,18 @@
                       if($cantidad > 0){
                         $c=0;
                       for($x =0; $x < $cantidad; $x++){
-                        $c++;
+                        //$c++;
                         $item = $info_pedido[$x];
                         $acumulador = 0;
                         $id_producto = '';
                         $nombre_producto = '';
                         $info_detalle_pedido = $pedido->mostrarDetallePorIdPedido($item['ID_PEDIDO']);
                         for ($y=0; $y < count($info_detalle_pedido); $y++) { 
+                          $c++;
                         	$acumulador = $acumulador + ($info_detalle_pedido[$y]['CANTIDAD']*$info_detalle_pedido[$y]['PRECIO']);
                         	$nombre_producto = $info_detalle_pedido[$y]['NOMBRE_PRODUCTO'];
                         	$id_producto = $info_detalle_pedido[$y]['PRODUCTO_ID_PRODUCTO'];
-                        }
+                        //}
                         
 
                     ?>
@@ -109,19 +111,20 @@
                       <td><?php print $acumulador ?> €</td>
                        
                       <td class="text-center">
-                        <a href="pedidos/ver.php?id=<?php print $item['USUARIO_ID_USUARIO'] ?>" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-eye-open"></span></a>
+                        <a href="./ver.php?ID_PEDIDO=<?php print $item['ID_PEDIDO'] ?>" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-eye-open"></span></a>
                         
                       </td>
                     
                     </tr>
 
                     <?php
+                        }
                       }
                     }else{
 
                     ?>
                     <tr>
-                      <td colspan="9">NO HAY REGISTROS</td>
+                      <td colspan="10">NO HAY REGISTROS</td>
                     </tr>
 
                     <?php }?>
@@ -133,7 +136,68 @@
              </fieldset>
           </div>
         </div>
+        <!--2º fila con una tabla-->
+        <div class="row">
+          <div class="col-md-12">
+             <fieldset>
+              <legend>Listado de Compras</legend>
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>ID Producto</th>
+                      <th>ID Cliente</th>
+                      <th>Ver detalles del Producto</th>
+                      <th>Ver detalles del Cliente</th>
+                    </tr>
+                  </thead>
+                  <tbody> 
+                    <?php
+                      require '../vendor/autoload.php';
+                      $compra = new tonline\Compra;
+                      $info_compra = $compra->mostrar();
 
+                      $cantidad = count($info_compra);
+                      if($cantidad > 0){
+                        $c=0;
+                      for($x =0; $x < $cantidad; $x++){
+                        $c++;
+                        $item = $info_compra[$x];
+
+                    ?>
+
+
+                    <tr>
+                      <td><?php print $c?></td>
+                      <td><?php print $item['PRODUCTO_ID_PRODUCTO']?></td>
+                      <td><?php print $item['USUARIO_ID_USUARIO']?></td>                     
+                      <td class="text-center">
+                        <a href="./verProducto.php?PRODUCTO_ID_PRODUCTO=<?php print $item['PRODUCTO_ID_PRODUCTO'] ?>" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-eye-open"></span></a>
+                      </td>
+                      <td class="text-center">
+                        <a href="./verUsuario.php?USUARIO_ID_USUARIO=<?php print $item['USUARIO_ID_USUARIO'] ?>" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-eye-open"></span></a>
+                      </td>
+                    
+                    </tr>
+
+                    <?php
+                      }
+                    }else{
+
+                    ?>
+                    <tr>
+                      <td colspan="5">NO HAY REGISTROS</td>
+                    </tr>
+
+                    <?php }?>
+                  
+                  
+                  </tbody>
+
+                </table>
+             </fieldset>
+          </div>
+        </div>
     </div>
     <!-- /container -->
 

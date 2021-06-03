@@ -87,7 +87,7 @@ class Pedido{
     }
 
     public function mostrar(){
-        $sql = "SELECT p.USUARIO_ID_USUARIO, p.FECHA, EMAIL, PASSWORD, NOMBRE, APELLIDOS, DIRECCION, ADMIN FROM pedido p 
+        $sql = "SELECT p.ID_PEDIDO, p.USUARIO_ID_USUARIO, p.FECHA, NOMBRE, APELLIDOS, DIRECCION, ADMIN FROM pedido p 
         INNER JOIN usuario u ON p.USUARIO_ID_USUARIO = u.ID_USUARIO ORDER BY p.USUARIO_ID_USUARIO ASC";
 
         $resultado = $this->cn->prepare($sql);
@@ -101,7 +101,7 @@ class Pedido{
 
     public function mostrarUltimos(){
         $sql = "SELECT p.ID_PEDIDO, p.USUARIO_ID_USUARIO, p.FECHA, NOMBRE, APELLIDOS, DIRECCION, ADMIN FROM pedido p 
-        INNER JOIN usuario u ON p.USUARIO_ID_USUARIO = u.ID_USUARIO ORDER BY p.USUARIO_ID_USUARIO ASC LIMIT 10";
+        INNER JOIN usuario u ON p.USUARIO_ID_USUARIO = u.ID_USUARIO ORDER BY p.USUARIO_ID_USUARIO DESC LIMIT 10";
 
         $resultado = $this->cn->prepare($sql);
 
@@ -113,13 +113,13 @@ class Pedido{
     }
 
     public function mostrarPorId($id){
-        $sql = "SELECT p.USUARIO_ID_USUARIO, EMAIL, PASSWORD, NOMBRE, APELLIDOS, DIRECCION, ADMIN FROM pedido p 
-        INNER JOIN usuario u ON p.USUARIO_ID_USUARIO = u.ID_USUARIO WHERE p.USUARIO_ID_USUARIO = :USUARIO_ID_USUARIO";
+        $sql = "SELECT p.USUARIO_ID_USUARIO,  p.FECHA, EMAIL, PASSWORD, NOMBRE, APELLIDOS, DIRECCION, ADMIN FROM pedido p 
+        INNER JOIN usuario u ON p.USUARIO_ID_USUARIO = u.ID_USUARIO WHERE p.ID_PEDIDO = :ID_PEDIDO";
 
         $resultado = $this->cn->prepare($sql);
 
         $_array = array(
-            ':USUARIO_ID_USUARIO'=>$id
+            ':ID_PEDIDO'=>$id
         );
 
         if($resultado->execute($_array))
@@ -136,7 +136,8 @@ class Pedido{
                 dp.PRODUCTO_ID_PRODUCTO,
                 p.NOMBRE_PRODUCTO,
                 p.PRECIO,
-                dp.CANTIDAD
+                dp.CANTIDAD,
+                p.IMAGEN
                 FROM detalle_pedido dp
                 INNER JOIN producto p ON p.ID_PRODUCTO = dp.PRODUCTO_ID_PRODUCTO
                 WHERE dp.PEDIDO_ID_PEDIDO = :ID_PEDIDO";
@@ -154,5 +155,29 @@ class Pedido{
 
     }
 
+    //todo. al final no lo necesito. Limpiar a l final
+    public function mostrarDetallePedidoPorIdPedido($id){
+        $sql = "SELECT 
+                dp.PEDIDO_ID_PEDIDO,
+                p.NOMBRE_PRODUCTO,
+                dp.PRECIO,
+                dp.CANTIDAD,
+                p.IMAGEN
+                FROM detalle_pedidos dp
+                INNER JOIN producto p ON p.ID_PRODUCTO= dp.PRODUCTO_ID_PRODUCTO
+                WHERE dp.USUARIO_ID_USUARIO = :id";
+
+        $resultado = $this->cn->prepare($sql);
+
+        $_array = array(
+            ':id'=>$id
+        );
+
+        if($resultado->execute( $_array))
+            return  $resultado->fetchAll();
+
+        return false;
+
+    }
 
 }
