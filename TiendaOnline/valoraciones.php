@@ -55,7 +55,7 @@ if(isset($_GET['ID_PRODUCTO']) && is_numeric($_GET['ID_PRODUCTO'])){
     <div class="row">
           <div class="col-md-12">
              <fieldset>
-              <legend>Todos los Pedidos</legend>
+              <legend>Todas las Valoraciones de los Usuarios</legend>
                 <table class="table table-bordered">
                   <thead>
                     <tr>
@@ -72,8 +72,9 @@ if(isset($_GET['ID_PRODUCTO']) && is_numeric($_GET['ID_PRODUCTO'])){
                     <?php
                         require 'vendor/autoload.php';
                         
-                        $valoracion  = new tonline\Valoracion;
-                        $info_valoracion = $valoracion->mostrarPorId($id);
+                        $valoraciones  = new tonline\Valoracion;
+                        $info_valoracion = $valoraciones->mostrarPorId($id);
+                        $categoria = new tonline\Categoria;
 
                         $cantidad = count($info_valoracion);
                         if($cantidad > 0){
@@ -81,6 +82,7 @@ if(isset($_GET['ID_PRODUCTO']) && is_numeric($_GET['ID_PRODUCTO'])){
                         for($x =0; $x < $cantidad; $x++){
                             $c++;
                             $item = $info_valoracion[$x];
+                            $nombre_categoria = $categoria->mostrarPorId($item['CATEGORIA_ID_CATEGORIA']);
                     ?>
 
 
@@ -90,7 +92,7 @@ if(isset($_GET['ID_PRODUCTO']) && is_numeric($_GET['ID_PRODUCTO'])){
                       <td><?php print $item['NOMBRE']?></td>
                       <td><?php print $item['PUNTUACION']?></td>
                       <td><?php print $item['COMENTARIO']?></td>
-                      <td><?php print $item['NOMBRE_CATEGORIA']?></td>
+                      <td><?php print $nombre_categoria[$x]?></td>
                       <td><?php print $item['PRECIO']?> €</td>
                       
                     </tr>

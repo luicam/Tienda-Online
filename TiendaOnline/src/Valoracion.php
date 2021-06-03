@@ -29,23 +29,20 @@ class Valoracion{
     }
 
     public function mostrarPorId($id){
-        $sql = "SELECT valoracion.USUARIO_ID_USUARIO, valoracion.PRODUCTO_ID_PRODUCTO, valoracion.PUNTUACION , valoracion.COMENTARIO, producto.NOMBRE_PRODUCTO, producto.PRECIO, categoria.NOMBRE_CATEGORIA, usuario.NOMBRE 
-        FROM valoracion WHERE PRODUCTO_ID_PRODUCTO=:PRODUCTO_ID_PRODUCTO
-        INNER JOIN producto, categoria
-        ON valoracion.PRODUCTO_ID_PRODUCTO = producto.ID_PRODUCTO
-        INNER JOIN usuario
-        ON valoracion.USUARIO_ID_USUARIO = usuario.ID_USUARIO
-        INNER JOIN categoria
-        ON producto.CATEGORIA_ID_CATEGORIA = categoria.ID_CATEGORIA
-        ";
+        $sql = "SELECT v.USUARIO_ID_USUARIO, v.PRODUCTO_ID_PRODUCTO, v.PUNTUACION , v.COMENTARIO, p.NOMBRE_PRODUCTO, p.PRECIO,
+         u.NOMBRE, u.APELLIDOS, p.CATEGORIA_ID_CATEGORIA 
+        FROM valoracion v
+        INNER JOIN producto p ON v.PRODUCTO_ID_PRODUCTO = p.ID_PRODUCTO
+        INNER JOIN usuario u ON v.USUARIO_ID_USUARIO = u.ID_USUARIO
+        WHERE v.PRODUCTO_ID_PRODUCTO = :ID_PRODUCTO";
         
         $resultado = $this->cn->prepare($sql);
         $_array = array(
-            ":PRODUCTO_ID_PRODUCTO" =>  $id
+            ":ID_PRODUCTO" => $id
         );
 
         if($resultado->execute($_array))
-            return $resultado->fetch();
+            return  $resultado->fetchAll();
 
         return false;
     }

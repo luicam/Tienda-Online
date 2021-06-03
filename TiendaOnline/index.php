@@ -107,7 +107,7 @@ require 'funciones.php';
                     </div>
                     <div class="panel-footer">
                         <a href="carrito.php?ID_PRODUCTO=<?php print $item['ID_PRODUCTO'] ?>" class="btn btn-success btn-block">
-                          <span class="glyphicon glyphicon-shopping-cart"></span> Comprar
+                          <span class="glyphicon glyphicon-shopping-cart"></span>  Comprar <?php print $item['PRECIO']?>€/uds
                         </a>
                     </div>
                     <div class="panel-footer">

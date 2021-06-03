@@ -28,7 +28,19 @@ class Categoria{
         return false;
     }
 
-    
+    public function mostrarPorId($id){
+        $sql = "SELECT NOMBRE_CATEGORIA FROM categoria WHERE ID_CATEGORIA = :CATEGORIA_ID_CATEGORIA";
+        
+        $resultado = $this->cn->prepare($sql);
+
+        $_array = array(
+            ":CATEGORIA_ID_CATEGORIA" => $id
+        );
+        if($resultado->execute($_array))
+            return $resultado->fetch();
+
+        return false;
+    }
 
     
 }
