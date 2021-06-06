@@ -91,15 +91,26 @@ class Producto{
 
     public function mostrarPorId($id){
         
-        $sql = "SELECT * FROM `producto` WHERE `ID_PRODUCTO`=:ID_PRODUCTO ";
+        $sql = "SELECT * FROM `producto` WHERE `ID_PRODUCTO`=:PRODUCTO_ID_PRODUCTO ";
         
         $resultado = $this->cn->prepare($sql);
         $_array = array(
-            "ID_PRODUCTO" =>  $id
+            "PRODUCTO_ID_PRODUCTO" =>  $id
         );
 
         if($resultado->execute($_array))
             return $resultado->fetch();
+
+        return false;
+    }
+
+    public function mostrarAll(){
+        $sql = "SELECT * FROM `producto` ";
+        
+        $resultado = $this->cn->prepare($sql);
+
+        if($resultado->execute())
+            return $resultado->fetchAll();
 
         return false;
     }

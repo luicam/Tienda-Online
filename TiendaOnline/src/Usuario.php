@@ -38,5 +38,20 @@ class Usuario{
         return false;
     }
 
+    public function mostrarPorId($id){
+        
+        $sql = "SELECT * FROM `usuario` WHERE `ID_USUARIO`=:USUARIO_ID_USUARIO ";
+        
+        $resultado = $this->cn->prepare($sql);
+        $_array = array(
+            "USUARIO_ID_USUARIO" =>  $id
+        );
+
+        if($resultado->execute($_array))
+            return $resultado->fetch();
+
+        return false;
+    }
+
 
 }

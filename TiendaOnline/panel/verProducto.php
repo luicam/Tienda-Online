@@ -51,113 +51,49 @@
 
     <!-- contenido -->
     <div class="container" id="main">
-    <div class="row">
+        <div class="row">
           <div class="col-md-12">
             <fieldset>
                 <?php
                     require '../vendor/autoload.php';
-                    $id = $_GET['ID_PEDIDO'];
-                    $pedido = new tonline\Pedido;
+                    $id = $_GET['PRODUCTO_ID_PRODUCTO'];
+                    $producto = new tonline\Producto;
 
-                    $info_pedido = $pedido->mostrarPorId($id);
-
-                    $info_detalle_pedido = $pedido->mostrarDetallePorIdPedido($id);
+                    $info_producto = $producto->mostrarPorId($id);
 
                 ?>
 
-
-                <legend>Información de la Compra</legend>
+                <legend>Información del Producto</legend>
                 <div class="form-group">
-                    <label>Nombre</label>
-                    <input value="<?php print $info_pedido['NOMBRE'] ?>" type="text" class="form-control" readonly>
-                </div>
-                <div class="form-group">
-                    <label>Apellidos</label>
-                    <input value="<?php print $info_pedido['APELLIDOS'] ?>" type="text" class="form-control" readonly>
+                    <label>ID Producto</label>
+                    <input value="<?php print $info_producto['ID_PRODUCTO'] ?>" type="text" class="form-control" readonly>
                 </div>
                 <div class="form-group">
-                    <label>Email</label>
-                    <input value="<?php print $info_pedido['EMAIL'] ?>" type="text" class="form-control" readonly>
+                    <label>Nombre Producto</label>
+                    <input value="<?php print $info_producto['NOMBRE_PRODUCTO'] ?>" type="text" class="form-control" readonly>
                 </div>
                 <div class="form-group">
-                    <label>Fecha</label>
-                    <input value="<?php print $info_pedido['FECHA'] ?>" type="text" class="form-control" readonly>
+                    <label>Descripción</label>
+                    <textarea rows="4" class="form-control" readonly>
+                      <?php print $info_producto['DESCRIPCION'] ?>
+                    </textarea>
                 </div>
-               
-
-
-                <hr>
-                    Productos Comprados
-                <hr>
-                <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>Titulo</th>
-                      <th>Foto</th>
-                      <th>Precio</th>
-                      <th>Cantidad</th>
-                      <th>
-                          Total
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody> 
-                    <?php
-                   
-                    
-                      $cantidad = count($info_detalle_pedido);
-                      if($cantidad > 0){
-                        $c=0;
-                      for($x =0; $x < $cantidad; $x++){
-                        $c++;
-                        $item = $info_detalle_pedido[$x];
-                        $total = $item['PRECIO'] * $item['CANTIDAD'];
-                    ?>
-
-
-                    <tr>
-                      <td><?php print $c?></td>
-                      <td><?php print $item['NOMBRE_PRODUCTO']?></td>
-                      <td>
-                      <?php
-                          $foto = '../'.$item['IMAGEN'];
-                          if(file_exists($foto)){
-                        ?>
-                          <img src="<?php print $foto; ?>" width="100">
-                      <?php }else{?>
-                          SIN FOTO
-                      <?php }?>
-                      </td>
-                      <td><?php print $item['PRECIO']?> €</td>
-                      <td><?php print $item['CANTIDAD']?></td>
-                    <td>
-                    <?php print $total?>
-                    </td>
-                    </tr>
-
-                    <?php
-                      }
-                    }else{
-
-                    ?>
-                    <tr>
-                      <td colspan="6">NO HAY REGISTROS</td>
-                    </tr>
-
-                    <?php }?>
-                  
-                  
-                  </tbody>
-
-                </table>
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label>Total Compra</label>
-                        <input value="<?php print $item['PRECIO'] * $item['CANTIDAD'] ?>" type="text" class="form-control" readonly>
-                    </div>
+                <div class="form-group">
+                    <label>Precio</label>
+                    <input value="<?php print $info_producto['PRECIO'] ?>" type="text" class="form-control" readonly>
                 </div>
-            </fieldset>
+                <div class="form-group">
+                    <label>Stock</label>
+                    <input value="<?php print $info_producto['STOCK'] ?>" type="text" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <label>URL Imagen</label>
+                    <input value="<?php print $info_producto['IMAGEN'] ?>" type="text" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Id Categoría</label>
+                    <input value="<?php print $info_producto['CATEGORIA_ID_CATEGORIA'] ?>" type="text" class="form-control" readonly>
+                </div>
           </div>
         </div>
         <hr>

@@ -51,113 +51,47 @@
 
     <!-- contenido -->
     <div class="container" id="main">
-    <div class="row">
+        <div class="row">
           <div class="col-md-12">
             <fieldset>
                 <?php
                     require '../vendor/autoload.php';
-                    $id = $_GET['ID_PEDIDO'];
-                    $pedido = new tonline\Pedido;
+                    $id = $_GET['USUARIO_ID_USUARIO'];
+                    $cliente = new tonline\Usuario;
 
-                    $info_pedido = $pedido->mostrarPorId($id);
-
-                    $info_detalle_pedido = $pedido->mostrarDetallePorIdPedido($id);
+                    $info_cliente = $cliente->mostrarPorId($id);
 
                 ?>
 
-
-                <legend>Información de la Compra</legend>
+                <legend>Información del Usuario</legend>
                 <div class="form-group">
-                    <label>Nombre</label>
-                    <input value="<?php print $info_pedido['NOMBRE'] ?>" type="text" class="form-control" readonly>
-                </div>
-                <div class="form-group">
-                    <label>Apellidos</label>
-                    <input value="<?php print $info_pedido['APELLIDOS'] ?>" type="text" class="form-control" readonly>
+                    <label>ID Usuario</label>
+                    <input value="<?php print $info_cliente['ID_USUARIO'] ?>" type="text" class="form-control" readonly>
                 </div>
                 <div class="form-group">
                     <label>Email</label>
-                    <input value="<?php print $info_pedido['EMAIL'] ?>" type="text" class="form-control" readonly>
+                    <input value="<?php print $info_cliente['EMAIL'] ?>" type="text" class="form-control" readonly>
                 </div>
                 <div class="form-group">
-                    <label>Fecha</label>
-                    <input value="<?php print $info_pedido['FECHA'] ?>" type="text" class="form-control" readonly>
+                    <label>Password</label>
+                    <input value="<?php print $info_cliente['PASSWORD'] ?>" type="text" class="form-control" readonly>
                 </div>
-               
-
-
-                <hr>
-                    Productos Comprados
-                <hr>
-                <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>Titulo</th>
-                      <th>Foto</th>
-                      <th>Precio</th>
-                      <th>Cantidad</th>
-                      <th>
-                          Total
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody> 
-                    <?php
-                   
-                    
-                      $cantidad = count($info_detalle_pedido);
-                      if($cantidad > 0){
-                        $c=0;
-                      for($x =0; $x < $cantidad; $x++){
-                        $c++;
-                        $item = $info_detalle_pedido[$x];
-                        $total = $item['PRECIO'] * $item['CANTIDAD'];
-                    ?>
-
-
-                    <tr>
-                      <td><?php print $c?></td>
-                      <td><?php print $item['NOMBRE_PRODUCTO']?></td>
-                      <td>
-                      <?php
-                          $foto = '../'.$item['IMAGEN'];
-                          if(file_exists($foto)){
-                        ?>
-                          <img src="<?php print $foto; ?>" width="100">
-                      <?php }else{?>
-                          SIN FOTO
-                      <?php }?>
-                      </td>
-                      <td><?php print $item['PRECIO']?> €</td>
-                      <td><?php print $item['CANTIDAD']?></td>
-                    <td>
-                    <?php print $total?>
-                    </td>
-                    </tr>
-
-                    <?php
-                      }
-                    }else{
-
-                    ?>
-                    <tr>
-                      <td colspan="6">NO HAY REGISTROS</td>
-                    </tr>
-
-                    <?php }?>
-                  
-                  
-                  </tbody>
-
-                </table>
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label>Total Compra</label>
-                        <input value="<?php print $item['PRECIO'] * $item['CANTIDAD'] ?>" type="text" class="form-control" readonly>
-                    </div>
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <input value="<?php print $info_cliente['NOMBRE'] ?>" type="text" class="form-control" readonly>
                 </div>
-            </fieldset>
+                <div class="form-group">
+                    <label>Apellidos</label>
+                    <input value="<?php print $info_cliente['APELLIDOS'] ?>" type="text" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Dirección</label>
+                    <input value="<?php print $info_cliente['DIRECCION'] ?>" type="text" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Administrador</label>
+                    <input value="<?php print $info_cliente['ADMIN'] ?>" type="text" class="form-control" readonly>
+                </div>
           </div>
         </div>
         <hr>

@@ -30,11 +30,11 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav pull-right">
-            <li class="active">
-              <a href="index.php" class="btn">Pedidos</a>
-            </li> 
             <li>
-              <a href="../juegos/index.php" class="btn">Juegos</a>
+              <a href="../pedidos/index.php" class="btn">Pedidos</a>
+            </li> 
+            <li class="active">
+              <a href="index.php" class="btn">Juegos</a>
             </li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">admin <span class="caret"></span></a>
@@ -53,78 +53,76 @@
     <div class="container" id="main">
         <div class="row">
           <div class="col-md-12">
+              <div class="pull-right">
+                <a href="form_registrar.php" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Añadir</a>
+              </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-12">
              <fieldset>
-              <legend>Todos los Pedidos</legend>
+              <legend>Todos los Juegos</legend>
                 <table class="table table-bordered">
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>ID Pedido</th>
                       <th>ID Producto</th>
-                      <th>Nombre Producto</th>
-                      <th>ID Cliente</th>
-                      <th>Datos Cliente</th>
-                      <th>Admin</th>
-                      <th>Direccion</th>
-                      <th>Fecha</th>
-                      <th>Total</th>
+                      <th>Descripción</th>
+                      <th>Precio</th>
+                      <th>Stock</th>
+                      <th>Imagen</th>
+                      <th>ID Categoría</th>
                       <th></th>
                     </tr>
                   </thead>
                   <tbody> 
                     <?php
                       require '../../vendor/autoload.php';
-                      $pedido = new tonline\Pedido;
-                      $info_pedido = $pedido->mostrar();
+                      $producto = new tonline\Producto;
+                      $info_producto = $producto->mostrarAll();
                     
-                      $cantidad = count($info_pedido);
+                      $cantidad = count($info_producto);
                       if($cantidad > 0){
                         $c=0;
                       for($x =0; $x < $cantidad; $x++){
-                        //$c++;
-                        $item = $info_pedido[$x];
-                        $acumulador = 0;
-                        $id_producto = '';
-                        $nombre_producto = '';
-                        $info_detalle_pedido = $pedido->mostrarDetallePorIdPedido($item['ID_PEDIDO']);
-                        for ($y=0; $y < count($info_detalle_pedido); $y++) { 
-                          $c++;
-                          $acumulador = $acumulador + ($info_detalle_pedido[$y]['CANTIDAD']*$info_detalle_pedido[$y]['PRECIO']);
-                          $nombre_producto = $info_detalle_pedido[$y]['NOMBRE_PRODUCTO'];
-                          $id_producto = $info_detalle_pedido[$y]['PRODUCTO_ID_PRODUCTO'];
-                        //}
+                        $c++;
+                        $item = $info_producto[$x];
                         
-
                     ?>
 
 
                     <tr>
                       <td><?php print $c?></td>
-                      <td><?php print $item['ID_PEDIDO']?></td>
-                      <td><?php print $id_producto?></td>
-                      <td><?php print $nombre_producto?></td>
-                      <td><?php print $item['USUARIO_ID_USUARIO']?></td>
-                      <td><?php print $item['NOMBRE'].' '.$item['APELLIDOS']?></td>
-                      <td><?php print $item['ADMIN']?></td>
-                      <td><?php print $item['DIRECCION']?></td>
-                      <td><?php print $item['FECHA']?></td>
-                      <td><?php print $acumulador ?> €</td>
-                       
+                      <td><?php print $item['ID_PRODUCTO']?></td>
+                      <td><?php print $item['DESCRIPCION']?></td>
+                      <td><?php print $item['PRECIO']?></td>
+                      <td><?php print $item['STOCK']?></td>
                       <td class="text-center">
-                        <a href="ver.php?ID_PEDIDO=<?php print $item['ID_PEDIDO'] ?>" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-eye-open"></span></a>
-                        
+                        <?php
+                          $foto = '../../'.$item['IMAGEN'];
+                          if(file_exists($foto)){
+                        ?>
+                          <img src="<?php print $foto; ?>" width="100">
+                      <?php }else{?>
+                          <img src="../../upload/not-found.jpg" width="100">
+                      <?php }?>
+                      </td>
+                      <td><?php print $item['CATEGORIA_ID_CATEGORIA']?></td>
+                      <td class="text-center">
+                        <a href="../funciones_admin.php?ID_PRODUCTO=<?php print $item['ID_PRODUCTO'] ?>" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></a>
+                        <a href="form_actualizar.php?ID_PRODUCTO=<?php print $item['ID_PRODUCTO']  ?>" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit"></span></a>
                       </td>
                     
                     </tr>
 
                     <?php
-                        }
                       }
                     }else{
 
                     ?>
                     <tr>
-                      <td colspan="11">NO HAY REGISTROS</td>
+                      <td colspan="7">NO HAY REGISTROS</td>
                     </tr>
 
                     <?php }?>

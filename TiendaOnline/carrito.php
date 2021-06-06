@@ -77,7 +77,16 @@ if(isset($_GET['ID_PRODUCTO']) && is_numeric($_GET['ID_PRODUCTO'])){
     </nav>
     <!-- Container -->
     <div class="container" id="main">
-            <table class="table table-bordered table-hover">
+        	<div class="row">
+                <div class="col-md-12">
+                    <div class="pull-right">
+                        <a href="javascript:;" id="btnImprimir" class="btn btn-primary hidden-print">New Wishlist <span class="glyphicon glyphicon-heart"></a>
+                    </div>
+                </div>
+    		</div>
+            <br>
+            <div class="row">
+                <table class="table table-bordered table-hover">
                   <thead>
                     <tr>
                       <th>#</th>
@@ -106,9 +115,9 @@ if(isset($_GET['ID_PRODUCTO']) && is_numeric($_GET['ID_PRODUCTO'])){
                                         $foto = './'.$value['IMAGEN'];
                                         if(file_exists($foto)){
                                         ?>
-                                        <img src="<?php print $foto; ?>" width="35">
+                                        <img src="<?php print $foto; ?>" width="100">
                                     <?php }else{?>
-                                        <img src="./upload/not-found.jpg" width="35">
+                                        <img src="./upload/not-found.jpg" width="100">
                                     <?php }?>
                                 </td>
                                 <td><?php print $value['PRECIO']  ?> €</td>
@@ -127,8 +136,6 @@ if(isset($_GET['ID_PRODUCTO']) && is_numeric($_GET['ID_PRODUCTO'])){
                                     <a href="eliminar_carrito.php?ID_PRODUCTO=<?php print $value['ID_PRODUCTO']  ?>" class="btn btn-danger btn-xs">
                                         <span class="glyphicon glyphicon-trash"></span> 
                                     </a>
-
-
                                 </td>
                             </form>
                         </tr>
@@ -153,7 +160,9 @@ if(isset($_GET['ID_PRODUCTO']) && is_numeric($_GET['ID_PRODUCTO'])){
                         </tr>
 
                 </tfoot>
-            </table>
+                </table>
+            </div>
+            
             <hr>
             <?php
                 if(isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])){
@@ -183,6 +192,15 @@ if(isset($_GET['ID_PRODUCTO']) && is_numeric($_GET['ID_PRODUCTO'])){
   <!-- Placed at the end of the document so the pages load faster -->
   <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
+  <script>
+        $('#btnImprimir').on('click',function(){
 
+            window.print();
+
+            return false;
+
+        })
+                        
+  </script>
 </body>
 </html>

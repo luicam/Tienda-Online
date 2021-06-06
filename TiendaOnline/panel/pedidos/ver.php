@@ -159,20 +159,19 @@
                 </div>
                 
             </fieldset>
-            <div class="pull-left">
-                <a href="./index.php" class="btn btn-default hidden-print">Cancelar</a>
-            </div>
-
-            <div class="pull-right">
-                <a href="javascript:;" id="btnImprimir" class="btn btn-danger hidden-print">Imprimir</a>
-            </div>
-
-            
-             
           </div>
         </div>
+        <hr>
+        <div class="row">
+          <div class="pull-left">
+            <a href="./index.php" class="btn btn-danger hidden-print">Cancelar</a>
+          </div>
 
-
+          <div class="pull-right">
+            <a href="javascript:;" id="btnImprimir" class="btn btn-success hidden-print">Imprimir</a>
+          </div>
+        </div>
+        <br><br>
     </div>
     <!-- /container -->
 

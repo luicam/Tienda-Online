@@ -111,7 +111,7 @@
                       <td><?php print $acumulador ?> €</td>
                        
                       <td class="text-center">
-                        <a href="./ver.php?ID_PEDIDO=<?php print $item['ID_PEDIDO'] ?>" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-eye-open"></span></a>
+                        <a href="./ver.php?ID_PEDIDO=<?php print $item['ID_PEDIDO'] ?>" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-eye-open"></span></a>
                         
                       </td>
                     
@@ -146,8 +146,8 @@
                     <tr>
                       <th>#</th>
                       <th>ID Producto</th>
-                      <th>ID Cliente</th>
                       <th>Ver detalles del Producto</th>
+                      <th>ID Cliente</th>
                       <th>Ver detalles del Cliente</th>
                     </tr>
                   </thead>
@@ -170,12 +170,12 @@
                     <tr>
                       <td><?php print $c?></td>
                       <td><?php print $item['PRODUCTO_ID_PRODUCTO']?></td>
-                      <td><?php print $item['USUARIO_ID_USUARIO']?></td>                     
                       <td class="text-center">
-                        <a href="./verProducto.php?PRODUCTO_ID_PRODUCTO=<?php print $item['PRODUCTO_ID_PRODUCTO'] ?>" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-eye-open"></span></a>
+                        <a href="./verProducto.php?PRODUCTO_ID_PRODUCTO=<?php print $item['PRODUCTO_ID_PRODUCTO'] ?>" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-eye-open"></span></a>
                       </td>
+                      <td><?php print $item['USUARIO_ID_USUARIO']?></td>
                       <td class="text-center">
-                        <a href="./verUsuario.php?USUARIO_ID_USUARIO=<?php print $item['USUARIO_ID_USUARIO'] ?>" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-eye-open"></span></a>
+                        <a href="./verUsuario.php?USUARIO_ID_USUARIO=<?php print $item['USUARIO_ID_USUARIO'] ?>" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-eye-open"></span></a>
                       </td>
                     
                     </tr>
