@@ -141,8 +141,17 @@
                       </div>
                   </div>
               </div>
-              <input type="submit" class="btn btn-primary" name="accion" value="Actualizar">
-              <a href="index.php" class="btn btn-default">Cancelar</a>
+              <hr>
+              <div class="row">
+                <div class="pull-left">
+                  <a href="index.php" class="btn btn-danger">Cancelar</a>
+                </div>
+                <div class="pull-right">
+                  <input type="submit" class="btn btn-success" name="accion" value="Actualizar">
+                </div>
+              </div>
+              <br>
+              <br>
             </form>
           </fieldset>
         

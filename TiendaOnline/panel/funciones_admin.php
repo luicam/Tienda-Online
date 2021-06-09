@@ -16,8 +16,8 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
         if(empty($_POST['PRECIO']))
             exit('Completar todos los datos');
 
-        if(!is_numeric($_POST['PRECIO'])&&!is_float($_POST['PRECIO']))
-            exit('Completar con datos de tipo entero/con decimales');
+        if(!is_numeric($_POST['PRECIO']))
+            exit('Completar con datos de tipo entero/o con decimales');
 
         if(empty($_POST['STOCK']))
             exit('Completar todos los datos');
@@ -40,7 +40,7 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
             'PRECIO'=>$_POST['PRECIO'],
             'STOCK'=>$_POST['STOCK'],
             'IMAGEN'=> subirFoto(),
-            'CATEGORIA_ID_CATEGORIA'=>$_POST['CATEGORIA_ID_CATEGORIA'],
+            'CATEGORIA_ID_CATEGORIA'=>$_POST['CATEGORIA_ID_CATEGORIA']
             //'FECHA'=> date('Y-m-d')
         );
 
@@ -65,8 +65,8 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
         if(empty($_POST['PRECIO']))
             exit('Completar todos los datos');
 
-        if(!is_numeric($_POST['PRECIO'])&&!is_float($_POST['PRECIO']))
-            exit('Completar con datos de tipo entero/con decimales');
+        if(!is_numeric($_POST['PRECIO']))
+            exit('Completar con datos de tipo entero/o con decimales');
 
         if(empty($_POST['STOCK']))
             exit('Completar todos los datos');
@@ -93,8 +93,8 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
         'ID_PRODUCTO'=>$_POST['ID_PRODUCTO']
     );
 
-    if(!empty($_POST['IMAGEN_NUEVA']))
-        $_params['IMAGEN'] = $_POST['IMAGEN_NUEVA'];
+    if(!empty($_POST['foto_temp']))
+        $_params['IMAGEN'] = $_POST['foto_temp'];
     
     if(!empty($_FILES['IMAGEN']['name']))
         $_params['IMAGEN'] = subirFoto();
@@ -126,13 +126,14 @@ if($_SERVER['REQUEST_METHOD'] ==='GET'){
 
 function subirFoto() {
 
-    $carpeta = __DIR__.'/../upload/juegps/';
+    $carpeta = __DIR__.'/../upload/juegos/';
 
     $archivo = $carpeta.$_FILES['IMAGEN']['name'];
-
+    //move_uploaded_file — Mueve un archivo subido a una nueva ubicación
+    //parametros: un archivo subido válido y la dirección de destino.
     move_uploaded_file($_FILES['IMAGEN']['tmp_name'],$archivo);
 
-    return $_FILES['IMAGEN']['name'];
+    return 'upload/juegos/'.$_FILES['IMAGEN']['name'];
 
 
 }
