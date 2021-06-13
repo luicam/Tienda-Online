@@ -4,17 +4,18 @@ Autor: Luis Miguel
 2º DAW
 
 Herramientas que se utilizaran:
-  -Xampp
+  -Xampp (apache, phpmyadmin, etc.)
   -VisualCode o Sublime 3
   -Composer
+  -Javascript
 
 Estructura en forma de árbol del proyecto:
+
+Tienda Online
 C:\xampp\htdocs>tree TiendaOnline /f
 Listado de rutas de carpetas
-
-El número de serie del volumen es 000000E9 F306:4050
+El número de serie del volumen es 0000007F F306:4050
 C:\XAMPP\HTDOCS\TIENDAONLINE
-TiendaOnline
 │   actualizar_carrito.php
 │   carrito.php
 │   Como instalar correctamente composer en Ubuntu.txt
@@ -61,9 +62,19 @@ TiendaOnline
 │           npm.js
 │
 ├───panel
+│   │   cerrar_session.php
+│   │   funciones_admin.php
 │   │   index.php
+│   │   login.php
 │   │   mainpanel.php
 │   │   ver.php
+│   │   verProducto.php
+│   │   verUsuario.php
+│   │
+│   ├───juegos
+│   │       form_actualizar.php
+│   │       form_registrar.php
+│   │       index.php
 │   │
 │   └───pedidos
 │           index.php
@@ -81,6 +92,7 @@ TiendaOnline
 │   │   not-found.jpg
 │   │
 │   └───juegos
+│           a.jpg
 │           bg.jpg
 │           codwz.jpg
 │           cp.jpg
@@ -112,3 +124,6 @@ TiendaOnline
             installed.php
             InstalledVersions.php
             LICENSE
+
+
+C:\xampp\htdocs>
