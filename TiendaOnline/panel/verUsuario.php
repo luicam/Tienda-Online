@@ -1,3 +1,13 @@
+<?php
+//añadir este bloque a todas las paginas
+  session_start();
+  //datos de usuaurio f12 para verlo
+  //print_r($_SESSION['usuario_info']);
+  //$_SESSION['usuario_info']['NOMBRE'];
+  if(!isset($_SESSION['usuario_info']) OR empty($_SESSION['usuario_info']))
+    header('Location: index.php');
+  
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,9 +47,10 @@
               <a href="./juegos/index.php" class="btn">Juegos</a>
             </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">admin <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  <?php print $_SESSION['usuario_info']['NOMBRE'] ?> <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="./index.php">Salir</a></li>
+                    <li><a href="cerrar_session.php">Salir</a></li>
                 </ul>
             </li>
           </ul>

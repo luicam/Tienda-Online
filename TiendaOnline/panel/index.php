@@ -42,26 +42,21 @@
                     </div>
                     <div class="panel-body">
                         <p class="text-center">
-                            <img src="../assets/imagenes/logo.png" alt="" width="210" >
+                            <img src="../assets/imagenes/logo.png" alt="login image" width="210" >
                         </p>
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email" class="form-control" name="nombre_usuario" placeholder="Usuario" required>
+                            <input type="email" class="form-control" name="EMAIL" placeholder="Email" required>
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" class="form-control" name="clave" placeholder="Password" required>
+                            <input type="password" class="form-control" name="PASSWORD" placeholder="Password" required>
                         </div>
-
                         <button type="submit" class="btn btn-primary btn-block">LOGIN</button>
-
-
-
                     </div>
                 </div>
             </form>
         </div>
-
     </div>
     <!-- /container -->
 
