@@ -135,7 +135,7 @@
                           $foto = '../../'.$item['IMAGEN'];
                           if(file_exists($foto)){
                         ?>
-                          <img src="<?php print $foto; ?>" width="35">
+                          <img src="<?php print $foto; ?>" width="100">
                       <?php }else{?>
                           SIN FOTO
                       <?php }?>

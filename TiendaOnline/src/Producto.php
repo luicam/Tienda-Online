@@ -91,11 +91,11 @@ class Producto{
 
     public function mostrarPorId($id){
         
-        $sql = "SELECT * FROM `producto` WHERE `ID_PRODUCTO`=:PRODUCTO_ID_PRODUCTO ";
+        $sql = "SELECT * FROM `producto` WHERE `ID_PRODUCTO`=:PRODUCTO_ID_PRODUCTO";
         
         $resultado = $this->cn->prepare($sql);
         $_array = array(
-            "PRODUCTO_ID_PRODUCTO" =>  $id
+            ":PRODUCTO_ID_PRODUCTO" =>  $id
         );
 
         if($resultado->execute($_array))
@@ -111,6 +111,25 @@ class Producto{
 
         if($resultado->execute())
             return $resultado->fetchAll();
+
+        return false;
+    }
+
+    public function mostrarCompraPorIds($id_producto, $id_usuario){
+        
+        $sql = "SELECT * FROM producto 
+        INNER JOIN compra ON compra.PRODUCTO_ID_PRODUCTO = producto.ID_PRODUCTO
+        WHERE compra.PRODUCTO_ID_PRODUCTO = :ID_PRODUCTO AND compra.USUARIO_ID_USUARIO = :ID_USUARIO
+        ";
+        
+        $resultado = $this->cn->prepare($sql);
+        $_array = array(
+            ":ID_PRODUCTO" =>  $id_producto,
+            ":ID_USUARIO" =>  $id_usuario
+        );
+
+        if($resultado->execute($_array))
+            return $resultado->fetch();
 
         return false;
     }

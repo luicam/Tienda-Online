@@ -121,8 +121,8 @@
                       </td>
                       <td><?php print $item['CATEGORIA_ID_CATEGORIA']?></td>
                       <td class="text-center">
-                        <a href="../funciones_admin.php?ID_PRODUCTO=<?php print $item['ID_PRODUCTO'] ?>" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></a>
-                        <a href="form_actualizar.php?ID_PRODUCTO=<?php print $item['ID_PRODUCTO']  ?>" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit"></span></a>
+                        <a href="../funciones_admin.php?ID_PRODUCTO=<?php print $item['ID_PRODUCTO']; ?>" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></a>
+                        <a href="form_actualizar.php?ID_PRODUCTO=<?php print $item['ID_PRODUCTO']; ?>" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit"></span></a>
                       </td>
                     
                     </tr>

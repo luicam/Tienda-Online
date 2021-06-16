@@ -1,14 +1,13 @@
 <?php
-//ACTIVAR LAS SESSIONES EN PHP
-session_start();
-require 'funciones.php';
-//if(isset($_GET['ID_PRODUCTO']) && is_numeric($_GET['ID_PRODUCTO'])){
-if(isset($_GET['ID_PRODUCTO']) && is_numeric($_GET['ID_PRODUCTO'])){
-    $id = $_GET['ID_PRODUCTO'];
+//añadir este bloque a todas las paginas
+  session_start();
+  require 'funciones.php';
 
-}  
-
-
+  //datos de usuaurio f12 para verlo
+  //print_r($_SESSION['usuario_info']);
+  //$_SESSION['usuario_info']['NOMBRE'];
+  if(!isset($_SESSION['usuario_datos']) OR empty($_SESSION['usuario_datos']))
+    header('Location: index.php');
 
 ?>
 <!DOCTYPE html>
@@ -52,58 +51,69 @@ if(isset($_GET['ID_PRODUCTO']) && is_numeric($_GET['ID_PRODUCTO'])){
     </nav>
     <!-- Container -->
     <div class="container" id="main">
-    	<div class="row">
+        <div class="row">
+          <div class="pull-right">
+               <a href="cerrar_sesion_valoracion_devolucion.php" class="btn btn-danger hidden-print">Cerrar Sesion</a>
+          </div>
+        </div>
+        <hr>
+    	  <div class="row">
           <div class="col-md-12">
             <fieldset>
-              <legend>Todas las Valoraciones de los Usuarios</legend>
+              <legend>Bienvenido de vuelta: <?php print_r($_SESSION['usuario_datos']['NOMBRE']);?>, usted realizó, o nó, la compra de este producto:</legend>
                 <table class="table table-bordered">
                   <thead>
                     <tr>
                       <th>#</th>
+                      <th>ID</th>
                       <th>Producto</th>
-                      <th>Usuario</th>
-                      <th>Puntuaciones</th>
-                      <th>Comentarios</th>
-                      <th>Categoria</th>
+                      <th>Descripción</th>
                       <th>Precio</th>
+                      <th>Imagen</th>
+                      <th>Categoria</th>
+                      <th>Valorar/Devolver</th>
                     </tr>
                   </thead>
                   <tbody> 
                     <?php
+                        $id_producto = $_SESSION['usuario_datos']['ID_PRODUCTO'];
+                        $id_usuario = $_SESSION['usuario_datos']['ID_USUARIO'];
+
                         require 'vendor/autoload.php';
                         
-                        $valoraciones  = new tonline\Valoracion;
-                        $info_valoracion = $valoraciones->mostrarPorId($id);
+                        $producto  = new tonline\Producto;
+                        $info_producto = $producto->mostrarCompraPorIds($id_producto, $id_usuario);
+                        
                         $categoria = new tonline\Categoria;
 
-                        $cantidad = count($info_valoracion);
-                        if($cantidad > 0){
-                            $c=0;
-                        for($x =0; $x < $cantidad; $x++){
-                            $c++;
-                            $item = $info_valoracion[$x];
-                            $nombre_categoria = $categoria->mostrarPorId($item['CATEGORIA_ID_CATEGORIA']);
+                        //$cantidad = count($info_producto);
+                        //if($cantidad > 0){
+                       	if($info_producto != false){
+                          $nombre_categoria = $categoria->mostrarPorId($info_producto['CATEGORIA_ID_CATEGORIA']);
                     ?>
 
 
                     <tr>
-                      <td><?php print $c?></td>
-                      <td><?php print $item['NOMBRE_PRODUCTO']?></td>
-                      <td><?php print $item['NOMBRE']?></td>
-                      <td><?php print $item['PUNTUACION']?></td>
-                      <td><?php print $item['COMENTARIO']?></td>
-                      <td><?php print $nombre_categoria[$x]?></td>
-                      <td><?php print $item['PRECIO']?> €</td>
-                      
+                      <td><?php print 1?></td>
+                      <td><?php print $info_producto['ID_PRODUCTO']?></td>
+                      <td><?php print $info_producto['NOMBRE_PRODUCTO']?></td>
+                      <td><?php print $info_producto['DESCRIPCION']?></td>
+                      <td><?php print $info_producto['PRECIO']?>  €</td>
+                      <td><?php print $info_producto['IMAGEN']?></td>
+                      <td><?php print $nombre_categoria['NOMBRE_CATEGORIA']?></td>
+                      <td class="text-center">
+                        <a href="" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Valoración</a>
+                        <a href="" class="btn btn-danger"><span class="glyphicon glyphicon-erase"></span> Devolución</a>
+                      </td>
                     </tr>
 
                     <?php
-                      }
+                    
                     }else{
 
                     ?>
                     <tr>
-                      <td colspan="7">NO HAY VALORACIONES PARA ESTE PRODUCTO</td>
+                      <td colspan="8">NO HAS COMPRADO ESTE PRODUCTO</td>
                     </tr>
 
                     <?php }?>
@@ -115,34 +125,9 @@ if(isset($_GET['ID_PRODUCTO']) && is_numeric($_GET['ID_PRODUCTO'])){
             </fieldset>
           </div>
         </div>
-
         <div class="row">
-        	<div class="main-login">
-	            <form action="login_valoracion_devolucion.php" method="post">
-	                <div class="panel panel-default">
-	                    <div class="panel-heading">
-	                        <h3 class="text-center">¿QUIERES DAR TU VALORACION O REALIZAR UNA DEVOLUCION?</h3>
-	                    </div>
-	                    <div class="panel-body">
-	                        <p class="text-center">
-	                            <img src="./assets/imagenes/logo.png" alt="login image" width="210" >
-	                        </p>
-	                        <div class="form-group">
-	                            <label>Email</label>
-	                            <input type="email" class="form-control" name="EMAIL" placeholder="Email" required>
-	                        </div>
-	                        <div class="form-group">
-	                            <label>Password</label>
-	                            <input type="password" class="form-control" name="PASSWORD" placeholder="Password" required>
-	                            <input type="hidden" name="ID_PRODUCTO" value="<?php print $_GET['ID_PRODUCTO']; ?>" required>
-	                        </div>
-	                        <button type="submit" class="btn btn-primary btn-block">LOGIN</button>
-	                    </div>
-	                </div>
-	            </form>
-	        </div>
+          
         </div>
-
     </div>
     <!-- /container -->
 

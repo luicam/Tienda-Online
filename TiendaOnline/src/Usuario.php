@@ -69,5 +69,21 @@ class Usuario{
         return false;
     }
 
+    public function loginUsuario($id, $pass){
+        
+        $sql = "SELECT ID_USUARIO, NOMBRE FROM `usuario` WHERE EMAIL=:id AND PASSWORD=:pass";
+        
+        $resultado = $this->cn->prepare($sql);
+        $_array = array(
+            ":id" =>  $id,
+            ":pass" =>  $pass
+        );
+
+        if($resultado->execute($_array))
+            return $resultado->fetch();
+
+        return false;
+    }
+
 
 }
