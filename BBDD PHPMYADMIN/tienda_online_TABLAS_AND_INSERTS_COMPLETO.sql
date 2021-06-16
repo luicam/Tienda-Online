@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-05-2021 a las 21:03:21
+-- Tiempo de generación: 16-06-2021 a las 20:14:57
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.3
 
@@ -64,7 +64,8 @@ CREATE TABLE `compra` (
 --
 
 INSERT INTO `compra` (`USUARIO_ID_USUARIO`, `PRODUCTO_ID_PRODUCTO`) VALUES
-(1, 1);
+(1, 1),
+(3, 14);
 
 -- --------------------------------------------------------
 
@@ -84,7 +85,8 @@ CREATE TABLE `detalle_pedido` (
 --
 
 INSERT INTO `detalle_pedido` (`PEDIDO_ID_PEDIDO`, `PRODUCTO_ID_PRODUCTO`, `CANTIDAD`, `DEVUELTO`) VALUES
-(1, 1, 1, 0);
+(1, 1, 1, 0),
+(2, 14, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -104,7 +106,8 @@ CREATE TABLE `pedido` (
 --
 
 INSERT INTO `pedido` (`ID_PEDIDO`, `COMPRADO`, `FECHA`, `USUARIO_ID_USUARIO`) VALUES
-(1, 1, '2021-05-02', 1);
+(1, 1, '2021-05-02', 1),
+(2, 1, '2021-05-30', 3);
 
 -- --------------------------------------------------------
 
@@ -142,7 +145,8 @@ INSERT INTO `producto` (`ID_PRODUCTO`, `NOMBRE_PRODUCTO`, `DESCRIPCION`, `PRECIO
 (13, 'Minecraft', 'Minecraft es un videojuego de mundo abierto donde la exploración y las construcciones son fundamentales. ... Al ser un videojuego de mundo abierto, no tiene una misión concreta (salvo alguno de sus modos de juego) y consiste en la construcción libre ', 10, 20, 'upload/juegos/m.jpg', 5),
 (14, 'FIFA 21', 'FIFA 21 es un videojuego de fútbol del año 2020 disponible para Microsoft Windows, PlayStation 4, Xbox One y Nintendo Switch el 9 de octubre de 2020, y también es el primer videojuego de la serie FIFA para PlayStation 5 y Xbox Series X|S. El juego es', 50, 77, 'upload/juegos/fifa.jpg', 8),
 (15, 'Super Smash Bros. Ultimate', 'Super Smash Bros. Ultimate es un videojuego de lucha crossover de la serie Super Smash Bros. desarrollada por Bandai Namco Games y Sora Ltd. y publicado por Nintendo. Este salió a la venta para Nintendo Switch a nivel mundial el 7 de diciembre de 201', 60, 66, 'upload/juegos/ssbu.png', 6),
-(16, 'Resident Evil Village', 'Resident Evil Village es un videojuego perteneciente al género de horror de supervivencia desarrollado y publicado por Capcom. la novena entrega de la serie principal de Resident Evil y secuela narrativa,', 70, 55, 'upload/juegos/village.jpg', 9);
+(16, 'Resident Evil Village', 'Resident Evil Village es un videojuego perteneciente al género de horror de supervivencia desarrollado y publicado por Capcom. la novena entrega de la serie principal de Resident Evil y secuela narrativa,', 70, 55, 'upload/juegos/village.jpg', 9),
+(17, 'a', 'a', 1, 2, 'upload/juegos/a.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -165,8 +169,9 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`ID_USUARIO`, `EMAIL`, `PASSWORD`, `NOMBRE`, `APELLIDOS`, `DIRECCION`, `ADMIN`) VALUES
-(1, 'attnluismiguel@gmail.com', '4c882dcb24bcb1bc225391a602feca7c', 'luis', 'camacho', 'CALLE PLAYA DE MARBELLA 2', 1),
-(2, 'pepe@gmail.com', '005a65fa2d534dc1c4a5f5994f374879', 'pepe', 'perez', 'CALLE PLAYA DE CONIL 1', 0);
+(1, 'attnluismiguel@gmail.com', '4c882dcb24bcb1bc225391a602feca7c', 'luis miguel', 'camacho', 'CALLE PLAYA DE MARBELLA, 2', 1),
+(2, 'pepe@gmail.com', '005a65fa2d534dc1c4a5f5994f374879', 'pepe', 'epep', 'CALLE PLAYA DE CONIL, 1', 0),
+(3, 'l@l.com', '123', 'l', 'm', 'a', 0);
 
 -- --------------------------------------------------------
 
@@ -256,19 +261,19 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `ID_PEDIDO` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID_PEDIDO` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `ID_PRODUCTO` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `ID_PRODUCTO` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `ID_USUARIO` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID_USUARIO` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
