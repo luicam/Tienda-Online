@@ -14,10 +14,11 @@ Estructura en forma de árbol del proyecto:
 Tienda Online
 C:\xampp\htdocs>tree TiendaOnline /f
 Listado de rutas de carpetas
-El número de serie del volumen es 0000007F F306:4050
+El número de serie del volumen es 00000084 F306:4050
 C:\XAMPP\HTDOCS\TIENDAONLINE
 │   actualizar_carrito.php
 │   carrito.php
+│   cerrar_sesion_valoracion_devolucion.php
 │   Como instalar correctamente composer en Ubuntu.txt
 │   Como instalar correctamente composer en Windows.txt
 │   completar_pedido.php
@@ -29,8 +30,10 @@ C:\XAMPP\HTDOCS\TIENDAONLINE
 │   funciones.php
 │   gracias.php
 │   index.php
+│   login_valoracion_devolucion.php
 │   readme.txt
 │   valoraciones.php
+│   valoracion_devolucion.php
 │
 ├───assets
 │   ├───css
