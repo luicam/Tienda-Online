@@ -29,7 +29,7 @@ Situate dentro de la carpeta.
 
 Paso 6:
 Ahora git clone url de mi github.
-	git clone .......
+	git clone https://github.com/luicam/Tienda-Online.git
 
 Paso 7:
 Mover la carpeta TiendaOnline que esta dentro de Tienda-Online a htdocs.
