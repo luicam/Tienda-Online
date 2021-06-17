@@ -1,0 +1,55 @@
+Pasos para lanzar mi Tienda Online, este o no una versión antigua de la misma presente.
+
+Paso 1:
+Lanza la instancia en la nube que quieras.
+
+Paso 2:
+Has una conexion SSH, con la herramienta que quieras.
+
+Paso 3:
+Actualiza solo por si acaso.
+	sudo apt update
+
+Muevete a la dirección.
+	cd /otp/lampp/htdocs
+
+Elimina la carpeta TiendaOnline en caso de que estuviera presente una vesión anterior.
+	sudo rm -rfv TiendaOnline/
+
+Paso 4:
+Vuelta en la dirección raiz, busca la carpeta en la que hiciste git clone de la versión anterior de la tienda y elimínala.
+	sudo rm -rfv desplegar1/
+
+Paso 5:
+Vuelve a crearte una carpeta donde haras git clone la ultima versión de la tienda.
+	sudo mkdir desplegar3
+
+Situate dentro de la carpeta.
+	cd desplegar3/
+
+Paso 6:
+Ahora git clone url de mi github.
+	git clone .......
+
+Paso 7:
+Mover la carpeta TiendaOnline que esta dentro de Tienda-Online a htdocs.
+	sudo mv desplegar3/Tienda-Online/TiendaOnline /opt/lampp/htdocs/
+
+También convendria vaciar la BBDD y volver a llenarla.
+	El fichero para realizar esto enta dentro de Tienda-Online en la carpeta BBDD PHPMYADMIN
+
+Paso 8:
+En localhost/phpmyadimn
+	Vaciar, eliminar las tablas y volver a llenar la bbdd.
+
+Paso 9:
+Iniciar xampp.
+	sudo /opt/lampp/lampp start
+
+Paso 10:
+Ir a la ip de la maquina en la nube.
+
+Cuando temines para xampp.
+	sudo /opt/lampp/lampp stop
+
+Fin, ignora los pasos que consideren que ya hay una version antigua de la tienda ya desplegada.
