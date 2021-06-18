@@ -102,8 +102,8 @@
                       <td><?php print $info_producto['IMAGEN']?></td>
                       <td><?php print $nombre_categoria['NOMBRE_CATEGORIA']?></td>
                       <td class="text-center">
-                        <a href="" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Valoración</a>
-                        <a href="" class="btn btn-danger"><span class="glyphicon glyphicon-erase"></span> Devolución</a>
+                        <a href="form_valoracion.php?ID_PRODUCTO=<?php print $id_producto ?>&ID_USUARIO=<?php print $id_usuario ?>" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Valoración</a>
+                        <a href="devuelto_gracias.php?ID_PRODUCTO=<?php print $id_producto ?>&ID_USUARIO=<?php print $id_usuario ?>" class="btn btn-danger"><span class="glyphicon glyphicon-erase"></span> Devolución</a>
                       </td>
                     </tr>
 

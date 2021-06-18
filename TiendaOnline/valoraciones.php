@@ -5,10 +5,7 @@ require 'funciones.php';
 //if(isset($_GET['ID_PRODUCTO']) && is_numeric($_GET['ID_PRODUCTO'])){
 if(isset($_GET['ID_PRODUCTO']) && is_numeric($_GET['ID_PRODUCTO'])){
     $id = $_GET['ID_PRODUCTO'];
-
-}  
-
-
+}
 
 ?>
 <!DOCTYPE html>

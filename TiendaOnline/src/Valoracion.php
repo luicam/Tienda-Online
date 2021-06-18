@@ -47,6 +47,25 @@ class Valoracion{
         return false;
     }
 
+    public function registrarValoracion($_params){
+        $sql = "INSERT INTO `valoracion`(`COMENTARIO`, `PUNTUACION`, `USUARIO_ID_USUARIO`, `PRODUCTO_ID_PRODUCTO`) 
+        VALUES (:COMENTARIO,:PUNTUACION,:USUARIO_ID_USUARIO,:PRODUCTO_ID_PRODUCTO)";
+
+        $resultado = $this->cn->prepare($sql);
+
+        $_array = array(
+            ":COMENTARIO" => $_params['COMENTARIO'],
+            ":PUNTUACION" => $_params['PUNTUACION'],
+            ":USUARIO_ID_USUARIO" => $_params['USUARIO_ID_USUARIO'],
+            ":PRODUCTO_ID_PRODUCTO" => $_params['PRODUCTO_ID_PRODUCTO']
+        );
+
+        if($resultado->execute($_array))
+            return  true;
+
+        return false;
+    }
+
 
     
 }

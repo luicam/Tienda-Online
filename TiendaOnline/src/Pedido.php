@@ -26,8 +26,7 @@ class Pedido{
         $_array = array(
             ":COMPRADO" => $_params['COMPRADO'],
             ":FECHA" => $_params['FECHA'],
-            ":USUARIO_ID_USUARIO" => $_params['USUARIO_ID_USUARIO'],
-            
+            ":USUARIO_ID_USUARIO" => $_params['USUARIO_ID_USUARIO']
         );
 
         if($resultado->execute($_array))
@@ -46,7 +45,7 @@ class Pedido{
             ":PEDIDO_ID_PEDIDO" => $_params['ID_PEDIDO'],
             ":PRODUCTO_ID_PRODUCTO" => $_params['ID_PRODUCTO'],
             ":CANTIDAD" => $_params['CANTIDAD'],
-            ":DEVUELTO" => $_params['DEVUELTO'],
+            ":DEVUELTO" => $_params['DEVUELTO']
         );
 
         if($resultado->execute($_array))
@@ -140,7 +139,7 @@ class Pedido{
                 p.IMAGEN
                 FROM detalle_pedido dp
                 INNER JOIN producto p ON p.ID_PRODUCTO = dp.PRODUCTO_ID_PRODUCTO
-                WHERE dp.PEDIDO_ID_PEDIDO = :ID_PEDIDO";
+                WHERE dp.PEDIDO_ID_PEDIDO = :ID_PEDIDO AND dp.DEVUELTO = 0";
 
         $resultado = $this->cn->prepare($sql);
 

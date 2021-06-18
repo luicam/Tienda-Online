@@ -29,7 +29,7 @@ class Producto{
             ":PRECIO" => $_params['PRECIO'],
             ":STOCK" => $_params['STOCK'],
             ":IMAGEN" => $_params['IMAGEN'],
-            ":CATEGORIA_ID_CATEGORIA" => $_params['CATEGORIA_ID_CATEGORIA'],
+            ":CATEGORIA_ID_CATEGORIA" => $_params['CATEGORIA_ID_CATEGORIA']
         );
 
         if($resultado->execute($_array))

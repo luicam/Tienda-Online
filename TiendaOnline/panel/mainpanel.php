@@ -66,7 +66,7 @@
         <div class="row">
           <div class="col-md-12">
              <fieldset>
-              <legend>Listado de los 10 últimos Pedidos</legend>
+              <legend>Listado de los 10 últimos Pedidos (ONLY DEVUELTOS = 0 {0:FALSE, 1:TRUE})</legend>
                 <table class="table table-bordered">
                   <thead>
                     <tr>
