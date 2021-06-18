@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-06-2021 a las 20:14:57
+-- Tiempo de generación: 18-06-2021 a las 18:00:05
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.3
 
@@ -65,7 +65,9 @@ CREATE TABLE `compra` (
 
 INSERT INTO `compra` (`USUARIO_ID_USUARIO`, `PRODUCTO_ID_PRODUCTO`) VALUES
 (1, 1),
-(3, 14);
+(3, 14),
+(3, 16),
+(4, 11);
 
 -- --------------------------------------------------------
 
@@ -86,7 +88,9 @@ CREATE TABLE `detalle_pedido` (
 
 INSERT INTO `detalle_pedido` (`PEDIDO_ID_PEDIDO`, `PRODUCTO_ID_PRODUCTO`, `CANTIDAD`, `DEVUELTO`) VALUES
 (1, 1, 1, 0),
-(2, 14, 1, 0);
+(2, 14, 1, 0),
+(3, 16, 1, 0),
+(4, 11, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -107,7 +111,9 @@ CREATE TABLE `pedido` (
 
 INSERT INTO `pedido` (`ID_PEDIDO`, `COMPRADO`, `FECHA`, `USUARIO_ID_USUARIO`) VALUES
 (1, 1, '2021-05-02', 1),
-(2, 1, '2021-05-30', 3);
+(2, 1, '2021-05-30', 3),
+(3, 1, '2021-06-18', 3),
+(4, 1, '2021-06-18', 4);
 
 -- --------------------------------------------------------
 
@@ -171,7 +177,8 @@ CREATE TABLE `usuario` (
 INSERT INTO `usuario` (`ID_USUARIO`, `EMAIL`, `PASSWORD`, `NOMBRE`, `APELLIDOS`, `DIRECCION`, `ADMIN`) VALUES
 (1, 'attnluismiguel@gmail.com', '4c882dcb24bcb1bc225391a602feca7c', 'luis miguel', 'camacho', 'CALLE PLAYA DE MARBELLA, 2', 1),
 (2, 'pepe@gmail.com', '005a65fa2d534dc1c4a5f5994f374879', 'pepe', 'epep', 'CALLE PLAYA DE CONIL, 1', 0),
-(3, 'l@l.com', '123', 'l', 'm', 'a', 0);
+(3, 'l@l.com', '123', 'l', 'm', 'a', 0),
+(4, 'a@a.com', '1234', 'a', 'b', 'c\\ playa de marbella', 0);
 
 -- --------------------------------------------------------
 
@@ -191,7 +198,8 @@ CREATE TABLE `valoracion` (
 --
 
 INSERT INTO `valoracion` (`COMENTARIO`, `PUNTUACION`, `USUARIO_ID_USUARIO`, `PRODUCTO_ID_PRODUCTO`) VALUES
-('Me parece un juego maravilloso y bastante completo en la saga de call of duty porque al ser el segundo batle royale de la franquicia mejoraron muchas cosas y una de mis cosas favoritas en este cod es la movilidad el sprint tactico fue una gran inovacion tambien la mayoria de las armas estan balanceadas osea si hay armas mas fuertes que otras pero como unas 6 armas estan casi al mismo nivel y la sensacion de los  momentos epicos en la batalla jugando con tus amigos es epica y mas aun en la final y la sensacion de ganar es legendaria y mas aun si es tu primera win y esa es mi reseña muy buen juego con buena movilidad y buenas armas y gran experiencia el unico defecto que le encuentro son las ratas que usan r9 de fuego y el espacio pero lo demas perfecto.', 10, 1, 1);
+('Me parece un juego maravilloso y bastante completo en la saga de call of duty porque al ser el segundo batle royale de la franquicia mejoraron muchas cosas y una de mis cosas favoritas en este cod es la movilidad el sprint tactico fue una gran inovacion tambien la mayoria de las armas estan balanceadas osea si hay armas mas fuertes que otras pero como unas 6 armas estan casi al mismo nivel y la sensacion de los  momentos epicos en la batalla jugando con tus amigos es epica y mas aun en la final y la sensacion de ganar es legendaria y mas aun si es tu primera win y esa es mi reseña muy buen juego con buena movilidad y buenas armas y gran experiencia el unico defecto que le encuentro son las ratas que usan r9 de fuego y el espacio pero lo demas perfecto.', 10, 1, 1),
+('mala', 1, 3, 14);
 
 --
 -- Índices para tablas volcadas
@@ -261,7 +269,7 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `ID_PEDIDO` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID_PEDIDO` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
@@ -273,7 +281,7 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `ID_USUARIO` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID_USUARIO` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas
