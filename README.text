@@ -14,7 +14,7 @@ Estructura en forma de árbol del proyecto:
 Tienda Online
 C:\xampp\htdocs>tree TiendaOnline /f
 Listado de rutas de carpetas
-El número de serie del volumen es 00000084 F306:4050
+El número de serie del volumen es 00000011 F306:4050
 C:\XAMPP\HTDOCS\TIENDAONLINE
 │   actualizar_carrito.php
 │   carrito.php
@@ -25,15 +25,19 @@ C:\XAMPP\HTDOCS\TIENDAONLINE
 │   composer.json
 │   composer.lock
 │   config.ini
+│   devuelto_gracias.php
 │   eliminar_carrito.php
 │   finalizar.php
+│   form_valoracion.php
 │   funciones.php
 │   gracias.php
 │   index.php
 │   login_valoracion_devolucion.php
+│   Pasos para lanzar mi Tienda Online.txt
 │   readme.txt
 │   valoraciones.php
 │   valoracion_devolucion.php
+│   valorado_gracias.php
 │
 ├───assets
 │   ├───css
@@ -86,6 +90,7 @@ C:\XAMPP\HTDOCS\TIENDAONLINE
 ├───src
 │       Categoria.php
 │       Compra.php
+│       DetallePedido.php
 │       Pedido.php
 │       Producto.php
 │       Usuario.php
