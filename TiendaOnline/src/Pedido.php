@@ -54,6 +54,22 @@ class Pedido{
         return false;
     }
 
+    public function existeCompra($_params2){
+        
+        $sql = "SELECT * FROM compra WHERE USUARIO_ID_USUARIO=:USUARIO_ID_USUARIO AND PRODUCTO_ID_PRODUCTO=:PRODUCTO_ID_PRODUCTO";
+        
+        $resultado = $this->cn->prepare($sql);
+        $_array = array(
+            ":USUARIO_ID_USUARIO" => $_params['USUARIO_ID_USUARIO'],
+            ":PRODUCTO_ID_PRODUCTO" => $_params['PRODUCTO_ID_PRODUCTO']
+        );
+
+        if($resultado->execute($_array))
+            return $resultado->fetchAll();
+
+        return false;
+    }
+
     public function registrarCompra($_params2){
         $sql = "INSERT INTO `compra`(`USUARIO_ID_USUARIO`, `PRODUCTO_ID_PRODUCTO`) 
         VALUES (:USUARIO_ID_USUARIO,:PRODUCTO_ID_PRODUCTO)";

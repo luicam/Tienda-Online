@@ -16,6 +16,22 @@ class Usuario{
         ));
         //fichero config.ini usuario y clave. 
     }
+
+    public function existeUsuario($_params){
+        
+        $sql = "SELECT * FROM usuario WHERE EMAIL=:EMAIL AND PASSWORD=:PASSWORD";
+        
+        $resultado = $this->cn->prepare($sql);
+        $_array = array(
+            ":EMAIL" => $_params['EMAIL'],
+            ":PASSWORD" => $_params['PASSWORD']
+        );
+
+        if($resultado->execute($_array))
+            return $resultado->fetchAll();
+
+        return false;
+    }
     
     public function registrar($_params){
         $sql = "INSERT INTO `usuario`(`EMAIL`, `PASSWORD`, `NOMBRE`, `APELLIDOS`, `DIRECCION`, `ADMIN`) 

@@ -35,11 +35,18 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
             'PRODUCTO_ID_PRODUCTO'=>$_POST['PRODUCTO_ID_PRODUCTO']
         );
 
-        $registro_valoracion = $valoracion->registrarValoracion($_params);
+        $existe = $valoracion->existeValoracion($_params);
+        if ($existe != false) {
+            $registro_valoracion = $valoracion->actualizarValoracion($_params);
+        }else{
+            $registro_valoracion = $valoracion->registrarValoracion($_params);
+        }
+
+        
 
         if($registro_valoracion = false)
             //header('Location: valorado_gracias.php');
-            print 'Error al registrar la valoracion de un producto.';
+            print 'Error al registrar/actualizar la valoracion de un producto.';
         
         
     }

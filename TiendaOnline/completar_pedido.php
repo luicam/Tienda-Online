@@ -17,8 +17,14 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
             'DIRECCION' => $_POST['DIRECCION'],
             'ADMIN' => $_POST['ADMIN']
         );
-    
-        $usuario_id = $usuario->registrar($_params);
+    	
+        $existe_usuario = $usuario->existeUsuario($_params);
+    	if (!$existe_usuario) {
+    		$usuario_id = $usuario->registrar($_params);
+    	} else{
+            $usuario_id = $existe_usuario[0]['ID_USUARIO'];
+        }
+        //$usuario_id = $usuario->registrar($_params);
     
         $pedido = new tonline\Pedido;
     
@@ -41,14 +47,18 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
                 'DEVUELTO' => 0
             );
 
-
             $pedido->registrarPedido($_params);
 
             $_params2 = array(
             'USUARIO_ID_USUARIO'=>$usuario_id,
             'PRODUCTO_ID_PRODUCTO'=> $value['ID_PRODUCTO']
             );
-            $pedido->registrarCompra($_params2);
+
+            $existe_compra = $pedido->existeCompra($_params2);
+            if (!$existe_compra) {
+                $pedido->registrarCompra($_params2);
+            }
+            //$pedido->registrarCompra($_params2);
         }
 
         $_SESSION['carrito'] = array();

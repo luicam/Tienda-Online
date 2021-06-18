@@ -17,6 +17,22 @@ class Valoracion{
         //fichero config.ini usuario y clave. 
     }
 
+    public function existeValoracion($_params){
+        
+        $sql = "SELECT * FROM valoracion WHERE USUARIO_ID_USUARIO=:USUARIO_ID_USUARIO AND PRODUCTO_ID_PRODUCTO=:PRODUCTO_ID_PRODUCTO";
+        
+        $resultado = $this->cn->prepare($sql);
+        $_array = array(
+            ":USUARIO_ID_USUARIO" => $_params['USUARIO_ID_USUARIO'],
+            ":PRODUCTO_ID_PRODUCTO" => $_params['PRODUCTO_ID_PRODUCTO']
+        );
+
+        if($resultado->execute($_array))
+            return $resultado->fetchAll();
+
+        return false;
+    }
+
     public function mostrar(){
         $sql = "SELECT * FROM valoracion";
         
@@ -50,6 +66,25 @@ class Valoracion{
     public function registrarValoracion($_params){
         $sql = "INSERT INTO `valoracion`(`COMENTARIO`, `PUNTUACION`, `USUARIO_ID_USUARIO`, `PRODUCTO_ID_PRODUCTO`) 
         VALUES (:COMENTARIO,:PUNTUACION,:USUARIO_ID_USUARIO,:PRODUCTO_ID_PRODUCTO)";
+
+        $resultado = $this->cn->prepare($sql);
+
+        $_array = array(
+            ":COMENTARIO" => $_params['COMENTARIO'],
+            ":PUNTUACION" => $_params['PUNTUACION'],
+            ":USUARIO_ID_USUARIO" => $_params['USUARIO_ID_USUARIO'],
+            ":PRODUCTO_ID_PRODUCTO" => $_params['PRODUCTO_ID_PRODUCTO']
+        );
+
+        if($resultado->execute($_array))
+            return  true;
+
+        return false;
+    }
+
+    public function actualizarValoracion($_params){
+        $sql = "UPDATE valoracion SET COMENTARIO =:COMENTARIO, PUNTUACION =:PUNTUACION 
+        WHERE USUARIO_ID_USUARIO =:USUARIO_ID_USUARIO AND PRODUCTO_ID_PRODUCTO =:PRODUCTO_ID_PRODUCTO ";
 
         $resultado = $this->cn->prepare($sql);
 
