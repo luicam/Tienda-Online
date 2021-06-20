@@ -118,12 +118,14 @@
                    
                     
                       $cantidad = count($info_detalle_pedido);
+                      $acumulador = 0;
                       if($cantidad > 0){
                         $c=0;
                       for($x =0; $x < $cantidad; $x++){
                         $c++;
                         $item = $info_detalle_pedido[$x];
                         $total = $item['PRECIO'] * $item['CANTIDAD'];
+                        $acumulador = $acumulador + $total;
                     ?>
 
 
@@ -143,7 +145,7 @@
                       <td><?php print $item['PRECIO']?> €</td>
                       <td><?php print $item['CANTIDAD']?></td>
                     <td>
-                    <?php print $total?>
+                    <?php print $total?> €
                     </td>
                     </tr>
 
@@ -165,7 +167,7 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label>Total Compra</label>
-                        <input value="<?php print $item['PRECIO'] * $item['CANTIDAD'] ?>" type="text" class="form-control" readonly>
+                        <input value="<?php print $acumulador ?> €" type="text" class="form-control" readonly>
                     </div>
                 </div>
             </fieldset>
