@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-06-2021 a las 18:00:05
+-- Tiempo de generación: 20-06-2021 a las 11:28:10
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.3
 
@@ -67,7 +67,8 @@ INSERT INTO `compra` (`USUARIO_ID_USUARIO`, `PRODUCTO_ID_PRODUCTO`) VALUES
 (1, 1),
 (3, 14),
 (3, 16),
-(4, 11);
+(4, 11),
+(5, 2);
 
 -- --------------------------------------------------------
 
@@ -90,7 +91,8 @@ INSERT INTO `detalle_pedido` (`PEDIDO_ID_PEDIDO`, `PRODUCTO_ID_PRODUCTO`, `CANTI
 (1, 1, 1, 0),
 (2, 14, 1, 0),
 (3, 16, 1, 0),
-(4, 11, 1, 0);
+(4, 11, 1, 0),
+(5, 2, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -113,7 +115,8 @@ INSERT INTO `pedido` (`ID_PEDIDO`, `COMPRADO`, `FECHA`, `USUARIO_ID_USUARIO`) VA
 (1, 1, '2021-05-02', 1),
 (2, 1, '2021-05-30', 3),
 (3, 1, '2021-06-18', 3),
-(4, 1, '2021-06-18', 4);
+(4, 1, '2021-06-18', 4),
+(5, 1, '2021-06-20', 5);
 
 -- --------------------------------------------------------
 
@@ -178,7 +181,8 @@ INSERT INTO `usuario` (`ID_USUARIO`, `EMAIL`, `PASSWORD`, `NOMBRE`, `APELLIDOS`,
 (1, 'attnluismiguel@gmail.com', '4c882dcb24bcb1bc225391a602feca7c', 'luis miguel', 'camacho', 'CALLE PLAYA DE MARBELLA, 2', 1),
 (2, 'pepe@gmail.com', '005a65fa2d534dc1c4a5f5994f374879', 'pepe', 'epep', 'CALLE PLAYA DE CONIL, 1', 0),
 (3, 'l@l.com', '123', 'l', 'm', 'a', 0),
-(4, 'a@a.com', '1234', 'a', 'b', 'c\\ playa de marbella', 0);
+(4, 'a@a.com', '1234', 'a', 'b', 'c\\ playa de marbella', 0),
+(5, 'jilov11967@bbsaili.com', '123', 'jilov', 'jilov', 'calle jilov', 0);
 
 -- --------------------------------------------------------
 
@@ -269,7 +273,7 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `ID_PEDIDO` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID_PEDIDO` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
@@ -281,7 +285,7 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `ID_USUARIO` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID_USUARIO` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas
