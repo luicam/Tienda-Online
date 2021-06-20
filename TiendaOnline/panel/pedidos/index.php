@@ -101,6 +101,9 @@
                         $info_detalle_pedido = $pedido->mostrarDetallePorIdPedido($item['ID_PEDIDO']);
                         for ($y=0; $y < count($info_detalle_pedido); $y++) { 
                           $c++;
+                          if($y>0){
+                            $acumulador = 0;
+                          }
                           $acumulador = $acumulador + ($info_detalle_pedido[$y]['CANTIDAD']*$info_detalle_pedido[$y]['PRECIO']);
                           $nombre_producto = $info_detalle_pedido[$y]['NOMBRE_PRODUCTO'];
                           $id_producto = $info_detalle_pedido[$y]['PRODUCTO_ID_PRODUCTO'];
