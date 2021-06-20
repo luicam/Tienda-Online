@@ -8,8 +8,10 @@ Herramientas que se utilizaran:
   -VisualCode o Sublime 3
   -Composer
   -Javascript
+Dentro de la carpeta documentacion de ayuda para desplegar mi tienda.
+Además aqui tienes un enlace a mi manual de usuario que te servira de guía: 
 
-Estructura en forma de árbol del proyecto:
+Estructura en forma de árbol del proyecto: https://www.flipsnack.com/PITiendaOnline/cloud-gaming-store.html
 
 Tienda Online
 C:\xampp\htdocs>tree TiendaOnline /f
