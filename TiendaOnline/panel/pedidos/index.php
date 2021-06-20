@@ -79,7 +79,8 @@
                       <th>Direccion</th>
                       <th>Fecha</th>
                       <th>Total</th>
-                      <th></th>
+                      <th>Ver</th>
+                      <th>Finalizar pedido</th>
                     </tr>
                   </thead>
                   <tbody> 
@@ -123,9 +124,10 @@
                        
                       <td class="text-center">
                         <a href="ver.php?ID_PEDIDO=<?php print $item['ID_PEDIDO'] ?>" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-eye-open"></span></a>
-                        
                       </td>
-                    
+                      <td class="text-center">
+                        <a href=""class="btn btn-success"><span class="glyphicon glyphicon-envelope"></span> Enviar Key</a>
+                      </td>
                     </tr>
 
                     <?php

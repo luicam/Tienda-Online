@@ -99,7 +99,17 @@
                       <td><?php print $info_producto['NOMBRE_PRODUCTO']?></td>
                       <td><?php print $info_producto['DESCRIPCION']?></td>
                       <td><?php print $info_producto['PRECIO']?>  €</td>
-                      <td><?php print $info_producto['IMAGEN']?></td>
+                      <!--<td><?php //print $info_producto['IMAGEN']?></td>-->
+                      <td>
+                        <?php
+                          $foto = './'.$info_producto['IMAGEN'];
+                          if(file_exists($foto)){
+                        ?>
+                          <img src="<?php print $foto; ?>" width="100">
+                        <?php }else{?>
+                          SIN FOTO
+                        <?php }?>
+                      </td>
                       <td><?php print $nombre_categoria['NOMBRE_CATEGORIA']?></td>
                       <td class="text-center">
                         <a href="form_valoracion.php?ID_PRODUCTO=<?php print $id_producto ?>&ID_USUARIO=<?php print $id_usuario ?>" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Valoración</a>

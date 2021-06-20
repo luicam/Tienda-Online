@@ -73,7 +73,7 @@ require 'funciones.php';
                                 </div>
                                 <div class="form-group">
                                     <label>ADMIN</label>
-                                    <input type="text" class="form-control" name="ADMIN" required>
+                                    <input type="text" class="form-control" name="ADMIN" value="0" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-block">Enviar</button>
                             </form>

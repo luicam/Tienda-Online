@@ -37,7 +37,27 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
         
         $pedido_id =  $pedido->registrar($_params);
         
-        
+        //Enviando correo
+
+        $to = $_POST['EMAIL'];
+        $to_name = $_POST['NOMBRE'];
+		$subject = "Pedido realizado";
+		$headers = "MIME-Version: 1.0" . "\r\n";
+		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+		 
+		$message = "
+		<html>
+		<head>
+		<title>HTML</title>
+		</head>
+		<body>
+		<h1>Estimado <?php print $to_name ?>.</h1>
+		<p>Su pedido se ha realizado con exito, en breve recibira otro correo con la clave/claves de los productos que ha comprado.</p>
+		<p>Gracias y hasta la proxima.</p>
+		</body>
+		</html>";
+		 
+		mail($to, $subject, $message, $headers);
 
         foreach($_SESSION['carrito'] as $indice => $value){
             $_params = array(
